@@ -4,200 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jardel Alves - Developer Portfolio</title>
-    <style>
-        /* Base styles */
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #121212;
-            color: #eee;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem;
-        }
-
-        /* Header styles */
-        .header {
-            background-color: #1a1a1a;
-            padding: 2rem 0;
-            text-align: center;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 3rem;
-            color: #e50914;
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            color: #bbb;
-        }
-
-        .nav {
-            margin: 1rem 0;
-            text-align: center;
-        }
-
-        .nav a {
-            color: #e50914;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-size: 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .nav a:hover {
-            color: #fff;
-        }
-
-        /* Movie grid */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .project-card {
-            background-color: #1f1f1f;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-
-        .project-card .content {
-            padding: 1rem;
-        }
-
-        .project-card h3 {
-            margin: 0;
-            font-size: 1.2rem;
-            color: #e50914;
-        }
-
-        .project-card p {
-            margin: 0.5rem 0;
-            font-size: 0.9rem;
-            color: #bbb;
-        }
-
-        .project-card a {
-            display: inline-block;
-            margin-top: 0.5rem;
-            padding: 0.5rem 1rem;
-            background-color: #e50914;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .project-card a:hover {
-            background-color: #f40612;
-        }
-
-        .footer {
-            background-color: #1a1a1a;
-            color: #eee;
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
-        }
-
-        .footer p {
-            margin: 0;
-            font-size: 0.9rem;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="header">
-        <div class="container">
-            <h1>Jardel's Project Hub</h1>
-            <p>Your favorite projects in one place</p>
-            <nav class="nav">
-                <a href="#latest">Latest Projects</a>
-                <a href="#trending">Trending</a>
-                <a href="#about">About Me</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
+        <h1>Jardel Alves - Fullstack Developer</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section id="latest" class="container">
-        <h2>Latest Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <img src="https://via.placeholder.com/200x300" alt="Project 1">
-                <div class="content">
-                    <h3>Project Title 1</h3>
-                    <p>A web app built using React and Node.js, featuring user authentication and a beautiful UI.</p>
-                    <a href="https://github.com/jardelva96/project1" target="_blank">View Project</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="https://via.placeholder.com/200x300" alt="Project 2">
-                <div class="content">
-                    <h3>Project Title 2</h3>
-                    <p>Data visualization dashboard using Django and Chart.js, providing insights from real-time data.</p>
-                    <a href="https://github.com/jardelva96/project2" target="_blank">View Project</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="https://via.placeholder.com/200x300" alt="Project 3">
-                <div class="content">
-                    <h3>Project Title 3</h3>
-                    <p>Mobile app for managing personal finances, built with React Native for Android and iOS.</p>
-                    <a href="https://github.com/jardelva96/project3" target="_blank">View Project</a>
-                </div>
-            </div>
+    <section id="about" class="about-section">
+        <h2>About Me</h2>
+        <p>Hello! I'm Jardel Alves, a passionate Fullstack Developer with expertise in Python, JavaScript, and creating dynamic web applications. I thrive on turning complex problems into simple, beautiful, and intuitive designs.</p>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <h2>My Projects</h2>
+        <div class="project-container" id="project-list">
+            <!-- JavaScript will dynamically insert project cards here -->
         </div>
     </section>
 
-    <section id="trending" class="container">
-        <h2>Trending Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <img src="https://via.placeholder.com/200x300" alt="Project 4">
-                <div class="content">
-                    <h3>Project Title 4</h3>
-                    <p>Machine learning model for predicting stock prices using Python and TensorFlow.</p>
-                    <a href="https://github.com/jardelva96/project4" target="_blank">View Project</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="https://via.placeholder.com/200x300" alt="Project 5">
-                <div class="content">
-                    <h3>Project Title 5</h3>
-                    <p>E-commerce platform with a headless CMS, built using Next.js and Strapi.</p>
-                    <a href="https://github.com/jardelva96/project5" target="_blank">View Project</a>
-                </div>
-            </div>
-        </div>
+    <section id="contact" class="contact-section">
+        <h2>Contact Me</h2>
+        <form id="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
     </section>
 
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Jardel's Project Hub. All rights reserved.</p>
-        </div>
+        <p>&copy; 2024 Jardel Alves - All rights reserved</p>
+        <p>
+            <a href="https://github.com/jardelva96" target="_blank">GitHub</a> |
+            <a href="https://linkedin.com/in/jardel-alves96" target="_blank">LinkedIn</a> |
+            <a href="mailto:jardel.va96@gmail.com">Email Me</a>
+        </p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
