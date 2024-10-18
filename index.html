@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jardel's Movie Hub</title>
+    <title>Jardel Alves - Developer Portfolio</title>
     <style>
         /* Base styles */
         body {
@@ -24,7 +24,7 @@
         /* Header styles */
         .header {
             background-color: #1a1a1a;
-            padding: 1.5rem 0;
+            padding: 2rem 0;
             text-align: center;
             margin-bottom: 2rem;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -32,7 +32,7 @@
 
         .header h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: #e50914;
         }
 
@@ -59,13 +59,13 @@
         }
 
         /* Movie grid */
-        .movie-grid {
+        .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
         }
 
-        .movie-card {
+        .project-card {
             background-color: #1f1f1f;
             border-radius: 10px;
             overflow: hidden;
@@ -73,29 +73,45 @@
             transition: transform 0.2s ease;
         }
 
-        .movie-card:hover {
+        .project-card:hover {
             transform: translateY(-5px);
         }
 
-        .movie-card img {
+        .project-card img {
             width: 100%;
-            display: block;
+            height: 300px;
+            object-fit: cover;
         }
 
-        .movie-card .content {
+        .project-card .content {
             padding: 1rem;
         }
 
-        .movie-card h3 {
+        .project-card h3 {
             margin: 0;
             font-size: 1.2rem;
             color: #e50914;
         }
 
-        .movie-card p {
+        .project-card p {
             margin: 0.5rem 0;
             font-size: 0.9rem;
             color: #bbb;
+        }
+
+        .project-card a {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: #e50914;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-card a:hover {
+            background-color: #f40612;
         }
 
         .footer {
@@ -115,80 +131,64 @@
 <body>
     <header class="header">
         <div class="container">
-            <h1>Jardel's Movie Hub</h1>
-            <p>Your favorite movies and series in one place</p>
+            <h1>Jardel's Project Hub</h1>
+            <p>Your favorite projects in one place</p>
             <nav class="nav">
-                <a href="#latest">Latest Releases</a>
+                <a href="#latest">Latest Projects</a>
                 <a href="#trending">Trending</a>
-                <a href="#genres">Genres</a>
+                <a href="#about">About Me</a>
                 <a href="#contact">Contact</a>
             </nav>
         </div>
     </header>
 
     <section id="latest" class="container">
-        <h2>Latest Releases</h2>
-        <div class="movie-grid">
-            <div class="movie-card">
-                <img src="https://via.placeholder.com/200x300" alt="Movie 1">
+        <h2>Latest Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/200x300" alt="Project 1">
                 <div class="content">
-                    <h3>Movie Title 1</h3>
-                    <p>Action, Drama</p>
+                    <h3>Project Title 1</h3>
+                    <p>A web app built using React and Node.js, featuring user authentication and a beautiful UI.</p>
+                    <a href="https://github.com/jardelva96/project1" target="_blank">View Project</a>
                 </div>
             </div>
-            <div class="movie-card">
-                <img src="https://via.placeholder.com/200x300" alt="Movie 2">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/200x300" alt="Project 2">
                 <div class="content">
-                    <h3>Movie Title 2</h3>
-                    <p>Comedy, Romance</p>
+                    <h3>Project Title 2</h3>
+                    <p>Data visualization dashboard using Django and Chart.js, providing insights from real-time data.</p>
+                    <a href="https://github.com/jardelva96/project2" target="_blank">View Project</a>
                 </div>
             </div>
-            <div class="movie-card">
-                <img src="https://via.placeholder.com/200x300" alt="Movie 3">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/200x300" alt="Project 3">
                 <div class="content">
-                    <h3>Movie Title 3</h3>
-                    <p>Horror, Thriller</p>
-                </div>
-            </div>
-            <div class="movie-card">
-                <img src="https://via.placeholder.com/200x300" alt="Movie 4">
-                <div class="content">
-                    <h3>Movie Title 4</h3>
-                    <p>Animation, Family</p>
+                    <h3>Project Title 3</h3>
+                    <p>Mobile app for managing personal finances, built with React Native for Android and iOS.</p>
+                    <a href="https://github.com/jardelva96/project3" target="_blank">View Project</a>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="trending" class="container">
-        <h2>Trending Now</h2>
-        <div class="movie-grid">
-            <div class="movie-card">
-                <img src="https://via.placeholder.com/200x300" alt="Movie 5">
+        <h2>Trending Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/200x300" alt="Project 4">
                 <div class="content">
-                    <h3>Movie Title 5</h3>
-                    <p>Sci-Fi, Adventure</p>
+                    <h3>Project Title 4</h3>
+                    <p>Machine learning model for predicting stock prices using Python and TensorFlow.</p>
+                    <a href="https://github.com/jardelva96/project4" target="_blank">View Project</a>
                 </div>
             </div>
-            <div class="movie-card">
-                <img src="https://via.placeholder.com/200x300" alt="Movie 6">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/200x300" alt="Project 5">
                 <div class="content">
-                    <h3>Movie Title 6</h3>
-                    <p>Drama, Biography</p>
-                </div>
-            </div>
-            <div class="movie-card">
-                <img src="https://via.placeholder.com/200x300" alt="Movie 7">
-                <div class="content">
-                    <h3>Movie Title 7</h3>
-                    <p>Fantasy, Mystery</p>
-                </div>
-            </div>
-            <div class="movie-card">
-                <img src="https://via.placeholder.com/200x300" alt="Movie 8">
-                <div class="content">
-                    <h3>Movie Title 8</h3>
-                    <p>Action, Adventure</p>
+                    <h3>Project Title 5</h3>
+                    <p>E-commerce platform with a headless CMS, built using Next.js and Strapi.</p>
+                    <a href="https://github.com/jardelva96/project5" target="_blank">View Project</a>
                 </div>
             </div>
         </div>
@@ -196,7 +196,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Jardel's Movie Hub. All rights reserved.</p>
+            <p>&copy; 2024 Jardel's Project Hub. All rights reserved.</p>
         </div>
     </footer>
 </body>
