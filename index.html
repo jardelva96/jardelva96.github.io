@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="header">
+    <header>
         <h1>Jardel Alves - Fullstack Developer</h1>
         <nav>
             <ul>
@@ -18,29 +18,19 @@
         </nav>
     </header>
 
-    <section id="about" class="about-section">
-        <h2>About Me</h2>
-        <p>Hello! I'm Jardel Alves, a passionate Fullstack Developer with expertise in Python, JavaScript, and creating dynamic web applications. I thrive on turning complex problems into simple, beautiful, and intuitive designs.</p>
-    </section>
-
-    <section id="projects" class="projects-section">
+    <section id="projects">
         <h2>My Projects</h2>
-        <div class="project-container" id="project-list">
-            <!-- JavaScript will dynamically insert project cards here -->
+        <div class="project-list">
+            <div class="project-card">
+                <h3>FaceGeek</h3>
+                <p>A social network for nerds. Built with HTML, CSS, and JavaScript.</p>
+                <a href="facegeek/index.html" target="_blank">View Project</a>
+            </div>
+            <!-- Add other projects similarly -->
         </div>
     </section>
 
-    <section id="contact" class="contact-section">
-        <h2>Contact Me</h2>
-        <form id="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
-
-    <footer class="footer">
+    <footer>
         <p>&copy; 2024 Jardel Alves - All rights reserved</p>
         <p>
             <a href="https://github.com/jardelva96" target="_blank">GitHub</a> |
@@ -48,7 +38,5 @@
             <a href="mailto:jardel.va96@gmail.com">Email Me</a>
         </p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
