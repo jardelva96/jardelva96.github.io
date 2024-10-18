@@ -1,63 +1,66 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #2c2c54;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #6a1b9a, #8e24aa);
     color: #f5f5f5;
     margin: 0;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .header {
     background: #7d5fff;
     color: #ffffff;
-    padding: 1rem;
-    text-align: center;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .header h1 {
-    margin: 0;
     font-size: 2rem;
 }
 
-.nav {
-    margin-top: 0.5rem;
-}
-
-.nav ul {
+.header .nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
     gap: 1.5rem;
-    padding: 0;
-    margin: 0;
 }
 
-.nav a {
+.header .nav a {
     color: #f5f5f5;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.header .nav a:hover {
+    color: #d1c4e9;
 }
 
 .main-container {
     display: flex;
     gap: 2rem;
-    padding: 1rem;
+    padding: 2rem;
     flex: 1;
-    overflow-y: auto;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.sidebar {
+.sidebar, .suggestions {
     background: #3d3d91;
     padding: 1rem;
     border-radius: 10px;
-    width: 200px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    flex: 1;
 }
 
-.sidebar h2 {
+.sidebar h2, .suggestions h2 {
     color: #fff;
     margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
 .sidebar ul {
@@ -72,41 +75,57 @@ body {
 .sidebar a {
     color: #d1c4e9;
     text-decoration: none;
+    font-size: 1rem;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+    background: #4b4baf;
 }
 
 .feed {
     background: #2c2c54;
     flex: 2;
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: 10px;
-    max-width: 600px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .create-post {
     background: #3a3a7e;
     padding: 1rem;
     border-radius: 10px;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
 }
 
 .create-post textarea {
-    width: 100%;
-    border-radius: 5px;
-    padding: 0.5rem;
-    border: none;
-    margin-bottom: 0.5rem;
-    resize: none;
     background: #5e5ebf;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 5px;
     color: #fff;
+    margin-bottom: 1rem;
 }
 
 .create-post button {
     background: #7d5fff;
     color: #fff;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.7rem 1rem;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: flex-end;
+}
+
+.create-post button:hover {
+    background: #9d7dff;
 }
 
 .post {
@@ -114,11 +133,13 @@ body {
     padding: 1rem;
     border-radius: 10px;
     margin-bottom: 1rem;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .post h3 {
     margin: 0;
     color: #d1c4e9;
+    font-size: 1.2rem;
 }
 
 .post p {
@@ -127,45 +148,58 @@ body {
 }
 
 .post .time {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: #a5a5d6;
 }
 
-.suggestions {
-    background: #3d3d91;
-    padding: 1rem;
-    border-radius: 10px;
-    width: 200px;
+.post-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
 }
 
-.suggestions h2 {
-    color: #fff;
-    margin-top: 0;
+.post-actions span {
+    cursor: pointer;
+    color: #d1c4e9;
+    transition: color 0.3s ease;
 }
 
-.suggestion {
+.post-actions span:hover {
+    color: #9d7dff;
+}
+
+.suggestions .suggestion {
     display: flex;
     align-items: center;
     margin: 1rem 0;
+    background: #4b4baf;
+    padding: 0.5rem;
+    border-radius: 8px;
 }
 
-.suggestion img {
+.suggestions .suggestion img {
     border-radius: 50%;
-    margin-right: 0.5rem;
+    margin-right: 0.8rem;
 }
 
-.suggestion button {
+.suggestions .suggestion button {
     background: #7d5fff;
     color: #fff;
     border: none;
     border-radius: 5px;
-    padding: 0.3rem 0.5rem;
+    padding: 0.4rem 0.8rem;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.suggestions .suggestion button:hover {
+    background: #9d7dff;
 }
 
 .footer {
     background: #7d5fff;
     color: #fff;
     text-align: center;
-    padding: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.3);
 }
