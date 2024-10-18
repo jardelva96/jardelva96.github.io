@@ -11,76 +11,49 @@
 <body>
     <!-- HEADER SECTION -->
     <header class="header">
-        <div class="header-content">
-            <h1>Jardel Alves</h1>
-            <p>Fullstack Developer | Java, Python, JavaScript Enthusiast</p>
-            <nav class="nav">
-                <ul>
-                    <li><a href="#about">About Me</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#info">Highlights</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+        <h1 class="logo">JardelFlix</h1>
+        <nav class="nav">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- ABOUT ME SECTION -->
-    <section id="about" class="about-section">
-        <h2>About Me</h2>
-        <div class="about-content">
-            <img src="https://images.unsplash.com/photo-1516382798890-4290a23881a3" alt="Jardel Alves Profile Picture" class="profile-pic">
-            <p>
-                Hello! I'm Jardel Alves, a passionate fullstack developer with over 10 years of experience in building dynamic web applications. I specialize in Java, Python, and modern web frameworks like React and Node.js. My goal is to create seamless and efficient digital solutions that make a difference.
-            </p>
-        </div>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h2>Welcome to My Portfolio</h2>
+        <p>Explore my latest projects and development skills, all in a visually captivating experience.</p>
     </section>
 
     <!-- PROJECTS SECTION -->
     <section id="projects" class="projects-section">
         <h2>My Projects</h2>
-        <div class="project-grid">
+        <div class="project-carousel">
             <div class="project-card">
-                <h3>FaceGeek - Social Network for Nerds</h3>
-                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998" alt="FaceGeek Preview" class="project-image">
-                <p>A vibrant social network for developers to connect, share, and collaborate.</p>
-                <a href="facegeek/index.html" target="_blank" class="project-link">View Project</a>
-            </div>
-            <div class="project-card">
-                <h3>Data Visualization Dashboard</h3>
-                <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df" alt="Data Visualization Preview" class="project-image">
-                <p>An interactive data visualization dashboard built with React and D3.js.</p>
-                <a href="https://github.com/jardelva96/project2" target="_blank" class="project-link">View Project</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- HIGHLIGHTS SECTION -->
-    <section id="info" class="info-section">
-        <h2>Today's Highlights</h2>
-        <div class="info-grid">
-            <div class="info-card">
-                <h3>Weather in Florianópolis</h3>
-                <img id="weather-icon" src="https://via.placeholder.com/100" alt="Weather Icon" class="weather-image">
-                <p id="weather-info">Loading weather...</p>
-            </div>
-            <div class="info-card">
-                <h3>Local Map</h3>
-                <div id="map" class="map-container">Loading map...</div>
-            </div>
-            <div class="info-card">
-                <h3>Bitcoin Price Chart</h3>
-                <canvas id="crypto-chart"></canvas>
-            </div>
-            <div class="info-card">
-                <h3>Quote of the Day</h3>
-                <div class="quote-background">
-                    <p id="quote-info">Loading quote...</p>
+                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998" alt="FaceGeek" class="project-image">
+                <div class="project-info">
+                    <h3>FaceGeek</h3>
+                    <p>A social network for nerds, built with JavaScript, HTML, and CSS.</p>
+                    <a href="https://jardelva96.github.io/facegeek" target="_blank" class="view-project">View Project</a>
                 </div>
             </div>
-            <div class="info-card">
-                <h3>Laugh of the Day</h3>
-                <p id="joke-info">Loading joke...</p>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df" alt="Data Dashboard" class="project-image">
+                <div class="project-info">
+                    <h3>Data Dashboard</h3>
+                    <p>An interactive data visualization dashboard using React and D3.js.</p>
+                    <a href="https://github.com/jardelva96/project2" target="_blank" class="view-project">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1564866657310-7d1762ab1ef8" alt="E-commerce API" class="project-image">
+                <div class="project-info">
+                    <h3>E-commerce API</h3>
+                    <p>A RESTful API for e-commerce platforms built with Node.js and Express.</p>
+                    <a href="https://github.com/jardelva96/project3" target="_blank" class="view-project">View Project</a>
+                </div>
             </div>
         </div>
     </section>
@@ -94,11 +67,6 @@
             <textarea placeholder="Your Message" required></textarea>
             <button type="submit">Send Message</button>
         </form>
-        <div class="contact-info">
-            <p>Email: <a href="mailto:jardel.va96@gmail.com">jardel.va96@gmail.com</a></p>
-            <p>Phone: +55 (48) 98816-8349</p>
-            <p>Location: Florianópolis, Brazil</p>
-        </div>
     </section>
 
     <!-- FOOTER SECTION -->
