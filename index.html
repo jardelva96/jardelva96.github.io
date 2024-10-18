@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jardel Alves - Fullstack Developer Portfolio</title>
+    <title>Jardel's Movie Hub</title>
     <style>
         /* Base styles */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            background-color: #121212;
             color: #eee;
-            overflow-x: hidden;
         }
 
         .container {
@@ -24,251 +23,181 @@
 
         /* Header styles */
         .header {
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
-            color: #fff;
-            padding: 2rem 0;
+            background-color: #1a1a1a;
+            padding: 1.5rem 0;
             text-align: center;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .header h1 {
             margin: 0;
-            font-size: 3rem;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            font-size: 2.5rem;
+            color: #e50914;
         }
 
         .header p {
             font-size: 1.2rem;
-            margin-top: 0.5rem;
+            color: #bbb;
         }
 
-        .nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1rem;
+        .nav {
+            margin: 1rem 0;
+            text-align: center;
         }
 
         .nav a {
-            color: #fff;
+            color: #e50914;
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin: 0 1rem;
+            font-size: 1rem;
+            transition: color 0.3s ease;
         }
 
         .nav a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        /* Section styles */
-        section {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            margin-bottom: 2rem;
-            padding: 2rem;
-            transition: transform 0.2s ease-in-out;
-        }
-
-        section:hover {
-            transform: translateY(-5px);
-        }
-
-        section h2 {
-            margin-top: 0;
-            font-size: 2.5rem;
-            color: #00c6ff;
-            border-bottom: 2px solid #0072ff;
-            padding-bottom: 0.5rem;
-        }
-
-        .project-list li, .skills-list li, .contact ul li {
-            background: #282a36;
             color: #fff;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid #00c6ff;
+        }
+
+        /* Movie grid */
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .movie-card {
+            background-color: #1f1f1f;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.2s ease;
         }
 
-        .project-list li:hover, .skills-list li:hover, .contact ul li:hover {
-            transform: translateX(5px);
-            background: #44475a;
+        .movie-card:hover {
+            transform: translateY(-5px);
         }
 
-        /* Contact form */
-        .contact-form input, .contact-form textarea {
+        .movie-card img {
             width: 100%;
-            padding: 0.75rem;
-            margin-bottom: 1rem;
-            border-radius: 5px;
-            border: none;
-            outline: none;
-            background: #44475a;
-            color: #fff;
+            display: block;
         }
 
-        .contact-form button {
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
-            color: #fff;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
+        .movie-card .content {
+            padding: 1rem;
         }
 
-        .contact-form button:hover {
-            background: linear-gradient(135deg, #0072ff, #00c6ff);
+        .movie-card h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #e50914;
+        }
+
+        .movie-card p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+            color: #bbb;
         }
 
         .footer {
-            background: #1f1c2c;
-            color: #fff;
+            background-color: #1a1a1a;
+            color: #eee;
             text-align: center;
             padding: 1rem 0;
-            margin-top: 3rem;
-            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+            margin-top: 2rem;
         }
 
         .footer p {
             margin: 0;
             font-size: 0.9rem;
         }
-
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            .nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            section {
-                padding: 1rem;
-            }
-
-            .project-list li, .skills-list li, .contact ul li {
-                margin-bottom: 1rem;
-            }
-        }
     </style>
 </head>
 <body>
     <header class="header">
         <div class="container">
-            <h1>Welcome to My Portfolio</h1>
-            <p>Hi, I'm <strong>Jardel Alves</strong>, a Fullstack Developer with expertise in <strong>Python</strong>, <strong>JavaScript</strong>, and more.</p>
+            <h1>Jardel's Movie Hub</h1>
+            <p>Your favorite movies and series in one place</p>
             <nav class="nav">
-                <ul>
-                    <li><a href="#about">About Me</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#weather">Weather</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+                <a href="#latest">Latest Releases</a>
+                <a href="#trending">Trending</a>
+                <a href="#genres">Genres</a>
+                <a href="#contact">Contact</a>
             </nav>
         </div>
     </header>
 
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>I am a passionate developer with over 8 years of experience in building web and mobile applications. I thrive on solving complex challenges with innovative solutions, using modern frameworks and tools to deliver the best user experiences.</p>
-        </div>
-    </section>
-
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2>My GitHub Projects</h2>
-            <ul id="repo-list" class="project-list"></ul>
-        </div>
-    </section>
-
-    <section id="weather" class="weather">
-        <div class="container">
-            <h2>Current Weather in Florianopolis</h2>
-            <div id="weather-info">
-                <p>Loading weather data...</p>
+    <section id="latest" class="container">
+        <h2>Latest Releases</h2>
+        <div class="movie-grid">
+            <div class="movie-card">
+                <img src="https://via.placeholder.com/200x300" alt="Movie 1">
+                <div class="content">
+                    <h3>Movie Title 1</h3>
+                    <p>Action, Drama</p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="https://via.placeholder.com/200x300" alt="Movie 2">
+                <div class="content">
+                    <h3>Movie Title 2</h3>
+                    <p>Comedy, Romance</p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="https://via.placeholder.com/200x300" alt="Movie 3">
+                <div class="content">
+                    <h3>Movie Title 3</h3>
+                    <p>Horror, Thriller</p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="https://via.placeholder.com/200x300" alt="Movie 4">
+                <div class="content">
+                    <h3>Movie Title 4</h3>
+                    <p>Animation, Family</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <form class="contact-form" id="contact-form">
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
-                <input type="email" id="email" name="email" placeholder="Your Email" required>
-                <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
+    <section id="trending" class="container">
+        <h2>Trending Now</h2>
+        <div class="movie-grid">
+            <div class="movie-card">
+                <img src="https://via.placeholder.com/200x300" alt="Movie 5">
+                <div class="content">
+                    <h3>Movie Title 5</h3>
+                    <p>Sci-Fi, Adventure</p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="https://via.placeholder.com/200x300" alt="Movie 6">
+                <div class="content">
+                    <h3>Movie Title 6</h3>
+                    <p>Drama, Biography</p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="https://via.placeholder.com/200x300" alt="Movie 7">
+                <div class="content">
+                    <h3>Movie Title 7</h3>
+                    <p>Fantasy, Mystery</p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="https://via.placeholder.com/200x300" alt="Movie 8">
+                <div class="content">
+                    <h3>Movie Title 8</h3>
+                    <p>Action, Adventure</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Jardel Alves - Fullstack Developer. All rights reserved.</p>
+            <p>&copy; 2024 Jardel's Movie Hub. All rights reserved.</p>
         </div>
     </footer>
-
-    <script>
-        // Fetch GitHub repositories
-        async function fetchGitHubRepos() {
-            try {
-                const response = await fetch('https://api.github.com/users/jardelva96/repos');
-                const repos = await response.json();
-                const repoList = document.getElementById('repo-list');
-
-                repos.slice(0, 5).forEach(repo => {
-                    const listItem = document.createElement('li');
-                    listItem.innerHTML = `
-                        <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
-                        <p>${repo.description || 'No description provided.'}</p>
-                        <p><strong>Stars:</strong> ${repo.stargazers_count} | <strong>Forks:</strong> ${repo.forks_count}</p>
-                    `;
-                    repoList.appendChild(listItem);
-                });
-            } catch (error) {
-                console.error('Error fetching GitHub repos:', error);
-            }
-        }
-
-        // Fetch weather data
-        async function fetchWeather() {
-            const apiKey = 'YOUR_API_KEY_HERE'; // Replace with your OpenWeatherMap API key
-            const city = 'Florianopolis';
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
-                const weatherInfo = document.getElementById('weather-info');
-                weatherInfo.innerHTML = `
-                    <p><strong>City:</strong> ${data.name}</p>
-                    <p><strong>Temperature:</strong> ${data.main.temp}°C</p>
-                    <p><strong>Weather:</strong> ${data.weather[0].description}</p>
-                    <p><strong>Humidity:</strong> ${data.main.humidity}%</p>
-                `;
-            } catch (error) {
-                console.error('Error fetching weather data:', error);
-            }
-        }
-
-        // Contact form submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Your message has been sent successfully!');
-        });
-
-        // Initialize functions
-        fetchGitHubRepos();
-        fetchWeather();
-    </script>
 </body>
 </html>
