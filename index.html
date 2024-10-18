@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jardel Alves - Fullstack Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Hi, I'm <strong>Jardel Alves</strong>, a Fullstack Developer with expertise in <strong>Python</strong>, <strong>JavaScript</strong>, and more. I create scalable and efficient web applications.</p>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I am a passionate developer with over 8 years of experience in building web and mobile applications. I thrive on solving complex challenges with innovative solutions, using modern frameworks and tools to deliver the best user experiences. My background in software engineering allows me to adapt quickly to new technologies and industry trends.</p>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <ul class="project-list">
+                <li>
+                    <h3><a href="https://github.com/jardelva96/project1">Project 1 - E-commerce Platform</a></h3>
+                    <p>A scalable e-commerce platform built using <strong>React</strong> and <strong>Node.js</strong>. Features include user authentication, shopping cart, and admin panel for product management.</p>
+                </li>
+                <li>
+                    <h3><a href="https://github.com/jardelva96/project2">Project 2 - Data Analytics Dashboard</a></h3>
+                    <p>An interactive dashboard for visualizing business KPIs using <strong>Django</strong> and <strong>React</strong>. Provides real-time insights with data from multiple sources integrated through RESTful APIs.</p>
+                </li>
+                <li>
+                    <h3><a href="https://github.com/jardelva96/project3">Project 3 - Mobile App</a></h3>
+                    <p>A cross-platform mobile application built with <strong>React Native</strong> for iOS and Android, providing a seamless experience for managing personal finance and budgeting.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li><strong>Programming Languages:</strong> Python, JavaScript, TypeScript, SQL, C++</li>
+                <li><strong>Frameworks & Libraries:</strong> Django, Flask, React, Angular, Node.js</li>
+                <li><strong>Cloud Platforms:</strong> AWS, Azure</li>
+                <li><strong>DevOps Tools:</strong> Docker, Kubernetes, Jenkins, Git</li>
+                <li><strong>Databases:</strong> MySQL, PostgreSQL, MongoDB, SQL Server</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>If you are interested in working together or have any questions, feel free to reach out to me!</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:jardel.va96@gmail.com">jardel.va96@gmail.com</a></li>
+                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jardel-alves96" target="_blank">linkedin.com/in/jardel-alves96</a></li>
+                <li><strong>GitHub:</strong> <a href="https://github.com/jardelva96" target="_blank">github.com/jardelva96</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Jardel Alves - Fullstack Developer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript for interactivity -->
+    <script>
+        // Example of smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
