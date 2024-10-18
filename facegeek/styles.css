@@ -1,0 +1,103 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #20232a;
+    margin: 0;
+    color: #ddd;
+}
+
+.header {
+    background-color: #61dafb;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.nav a {
+    color: #20232a;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.feed-section {
+    padding: 2rem;
+    background-color: #282c34;
+}
+
+.feed-section h2 {
+    color: #61dafb;
+    text-align: center;
+}
+
+.post-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.post-form textarea {
+    width: 100%;
+    max-width: 600px;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #3a3f47;
+    color: #ddd;
+    resize: vertical;
+    margin-bottom: 1rem;
+}
+
+.post-form button {
+    padding: 0.7rem 2rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #61dafb;
+    color: #20232a;
+    cursor: pointer;
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.post {
+    background: #3a3f47;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.post h3 {
+    margin: 0 0 0.5rem 0;
+    color: #61dafb;
+}
+
+.post p {
+    margin: 0.5rem 0;
+    color: #ddd;
+}
+
+.footer {
+    background-color: #61dafb;
+    color: #20232a;
+    text-align: center;
+    padding: 1rem;
+}
