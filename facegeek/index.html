@@ -3,35 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jardel Alves - Developer Portfolio</title>
+    <title>FaceGeek - Social Network for Nerds</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Jardel Alves - Fullstack Developer</h1>
-        <nav>
+    <header class="header">
+        <h1>FaceGeek</h1>
+        <nav class="nav">
             <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#messages">Messages</a></li>
+                <li><a href="#notifications">Notifications</a></li>
+                <li><a href="#settings">Settings</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="projects">
-        <h2>My Projects</h2>
-        <div class="project-list">
-            <div class="project-card">
-                <h3>FaceGeek</h3>
-                <p>A social network for nerds. Built with HTML, CSS, and JavaScript.</p>
-                <a href="facegeek/index.html" target="_blank">View Project</a>
-            </div>
-            <!-- Add other projects similarly -->
-        </div>
-    </section>
+    <div class="main-container">
+        <aside class="sidebar">
+            <h2>Explore</h2>
+            <ul>
+                <li><a href="#groups">Groups</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#friends">Friends</a></li>
+                <li><a href="#saved">Saved Posts</a></li>
+            </ul>
+        </aside>
 
-    <footer>
-        <p>&copy; 2024 Jardel Alves - All rights reserved</p>
+        <section class="feed">
+            <div class="create-post">
+                <textarea placeholder="What's on your mind, Jardel?"></textarea>
+                <button>Post</button>
+            </div>
+            <div class="post">
+                <h3>John Dev</h3>
+                <p>Just released my new Node.js course! Check it out on my profile.</p>
+                <span class="time">2 hours ago</span>
+            </div>
+            <div class="post">
+                <h3>Jane Coder</h3>
+                <p>Started learning React, any tips for beginners?</p>
+                <span class="time">5 hours ago</span>
+            </div>
+        </section>
+
+        <aside class="suggestions">
+            <h2>Suggested Friends</h2>
+            <div class="suggestion">
+                <img src="https://via.placeholder.com/50" alt="User 1">
+                <div>
+                    <p>Alex Nerd</p>
+                    <button>Add Friend</button>
+                </div>
+            </div>
+            <div class="suggestion">
+                <img src="https://via.placeholder.com/50" alt="User 2">
+                <div>
+                    <p>Chris Geek</p>
+                    <button>Add Friend</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 FaceGeek - All rights reserved</p>
         <p>
             <a href="https://github.com/jardelva96" target="_blank">GitHub</a> |
             <a href="https://linkedin.com/in/jardel-alves96" target="_blank">LinkedIn</a> |
