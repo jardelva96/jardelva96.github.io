@@ -6,6 +6,7 @@
     <meta name="description" content="Jardel Alves - Fullstack Developer Portfolio">
     <title>Jardel Alves - Developer Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <!-- HEADER SECTION -->
@@ -17,8 +18,7 @@
                 <ul>
                     <li><a href="#about">About Me</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#apis">APIs</a></li>
+                    <li><a href="#info">Highlights</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -33,28 +33,6 @@
             <p>
                 Hello! I'm Jardel Alves, a passionate fullstack developer with over 10 years of experience in building dynamic web applications. I specialize in Java, Python, and modern web frameworks like React and Node.js. My goal is to create seamless and efficient digital solutions that make a difference.
             </p>
-            <table class="skills-table">
-                <tr>
-                    <th>Skills</th>
-                    <th>Experience</th>
-                </tr>
-                <tr>
-                    <td>Java</td>
-                    <td>9 years</td>
-                </tr>
-                <tr>
-                    <td>Python</td>
-                    <td>8 years</td>
-                </tr>
-                <tr>
-                    <td>React & Node.js</td>
-                    <td>5 years</td>
-                </tr>
-                <tr>
-                    <td>Database Management (SQL, Oracle)</td>
-                    <td>7 years</td>
-                </tr>
-            </table>
         </div>
     </section>
 
@@ -62,76 +40,47 @@
     <section id="projects" class="projects-section">
         <h2>My Projects</h2>
         <div class="project-grid">
-            <!-- Projeto com imagem externa -->
             <div class="project-card">
                 <h3>FaceGeek - Social Network for Nerds</h3>
                 <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998" alt="FaceGeek Preview" class="project-image">
                 <p>A vibrant social network for developers to connect, share, and collaborate.</p>
                 <a href="facegeek/index.html" target="_blank" class="project-link">View Project</a>
             </div>
-            <!-- Outro projeto com imagem externa -->
             <div class="project-card">
                 <h3>Data Visualization Dashboard</h3>
                 <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df" alt="Data Visualization Preview" class="project-image">
                 <p>An interactive data visualization dashboard built with React and D3.js.</p>
                 <a href="https://github.com/jardelva96/project2" target="_blank" class="project-link">View Project</a>
             </div>
-            <!-- Mais projetos -->
-            <div class="project-card">
-                <h3>E-commerce REST API</h3>
-                <img src="https://images.unsplash.com/photo-1564866657310-7d1762ab1ef8" alt="E-commerce API Preview" class="project-image">
-                <p>A RESTful API service built with Node.js for managing e-commerce platforms.</p>
-                <a href="https://github.com/jardelva96/project3" target="_blank" class="project-link">View Project</a>
-            </div>
         </div>
     </section>
 
-    <!-- SKILLS SECTION -->
-    <section id="skills" class="skills-section">
-        <h2>Skills</h2>
-        <div class="skills-content">
-            <p>
-                My expertise spans across multiple technologies and frameworks. Here are some of my core competencies:
-            </p>
-            <ul class="skills-list">
-                <li>Backend Development: Java, Python, Node.js, Express</li>
-                <li>Frontend Development: React, Angular, HTML5, CSS3</li>
-                <li>Database Management: MySQL, PostgreSQL, Oracle</li>
-                <li>Cloud Services: AWS, Azure, Docker</li>
-                <li>Version Control: Git, GitHub, GitLab</li>
-                <li>DevOps: CI/CD, Jenkins, Kubernetes</li>
-            </ul>
-            <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8" alt="Skills Graph" class="skills-graph">
-        </div>
-    </section>
-
-    <!-- APIs SECTION -->
-    <section id="apis" class="apis-section">
-        <h2>API Integrations</h2>
-        <div class="api-grid">
-            <div class="api-card">
-                <h3>Current Weather</h3>
+    <!-- HIGHLIGHTS SECTION -->
+    <section id="info" class="info-section">
+        <h2>Today's Highlights</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Weather in Florianópolis</h3>
+                <img id="weather-icon" src="https://via.placeholder.com/100" alt="Weather Icon" class="weather-image">
                 <p id="weather-info">Loading weather...</p>
             </div>
-            <div class="api-card">
-                <h3>Local Time</h3>
-                <p id="time-info">Loading time...</p>
+            <div class="info-card">
+                <h3>Local Map</h3>
+                <div id="map" class="map-container">Loading map...</div>
             </div>
-            <div class="api-card">
-                <h3>Crypto Prices</h3>
-                <p id="crypto-info">Loading crypto prices...</p>
+            <div class="info-card">
+                <h3>Bitcoin Price Chart</h3>
+                <canvas id="crypto-chart"></canvas>
             </div>
-            <div class="api-card">
-                <h3>GitHub Activity</h3>
-                <p id="github-activity">Loading GitHub activity...</p>
-            </div>
-            <div class="api-card">
-                <h3>Random Joke</h3>
-                <p id="joke-info">Loading a joke...</p>
-            </div>
-            <div class="api-card">
+            <div class="info-card">
                 <h3>Quote of the Day</h3>
-                <p id="quote-info">Loading quote...</p>
+                <div class="quote-background">
+                    <p id="quote-info">Loading quote...</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h3>Laugh of the Day</h3>
+                <p id="joke-info">Loading joke...</p>
             </div>
         </div>
     </section>
@@ -161,8 +110,5 @@
             <a href="mailto:jardel.va96@gmail.com">Email Me</a>
         </p>
     </footer>
-
-    <!-- Include JavaScript -->
-    <script src="script.js"></script>
 </body>
 </html>
