@@ -3,377 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jardel Alves Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <title>Jardel Alves - Portfolio</title>
     <style>
-        /* Global Styles */
         body {
-            background: #121212;
-            color: #fff;
+            background-color: #222831;
+            color: #eeeeee;
             font-family: 'Arial', sans-serif;
             margin: 0;
-            font-size: 118%;
-            overflow-x: hidden;
+            padding: 0;
         }
+
         header {
-            background: rgba(31, 31, 31, 0.9);
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            background-color: #393e46;
+            padding: 1rem 2rem;
+            text-align: center;
         }
+
         header h1 {
-            font-size: 3.2rem;
-            z-index: 2;
-            animation: floatEffect 3s ease-in-out infinite;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-        }
-        /* Name Cascade Animation */
-        .name-cascade {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100%;
-            color: rgba(255, 255, 255, 0.05);
+            color: #00adb5;
             font-size: 2.5rem;
-            line-height: 3.2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 1;
-            pointer-events: none;
-            opacity: 0.7;
-        }
-        .name-cascade p {
             margin: 0;
-            animation: scrollCascade 15s linear infinite;
         }
-        @keyframes scrollCascade {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-100%); }
-        }
-        /* Navigation Styles */
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin-left: 1rem;
-            font-size: 1.3rem;
-            z-index: 2;
-            transition: color 0.3s ease, background 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-        }
-        nav a:hover {
-            color: #4e94f3;
-            background: #222;
-        }
-        .dynamic-box {
-            background: #444;
-            width: 140px;
-            height: 60px;
-            transition: all 0.3s ease;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 3;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-        }
-        .dynamic-box:hover {
-            width: 200px;
-            height: 90px;
-            background: #666;
-            cursor: url('https://example.com/fire-cursor.png'), auto;
-        }
-        .dynamic-box span {
-            font-size: 1.1rem;
-            text-align: center;
-        }
-        .banner {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 400px;
-            background: url('https://source.unsplash.com/random/1920x1080?science,technology') no-repeat center center/cover;
-            background-size: cover;
-            text-align: center;
-            position: relative;
-        }
-        .banner h2 {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 1.5rem;
-            border-radius: 8px;
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            z-index: 2;
-        }
-        .banner img {
-            width: 180px;
-            height: auto;
-            margin-top: 1rem;
-            z-index: 2;
-        }
+
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 2rem;
-            position: relative;
         }
-        #map {
-            height: 280px;
-            width: 340px;
-            margin-top: 2rem;
-            margin-left: auto;
-            border-radius: 8px;
-            border: 2px solid #333;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        #map:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(78, 148, 243, 0.7);
-        }
-        /* Info Section */
-        .info-section {
-            display: flex;
-            justify-content: space-between;
-            gap: 1rem;
-            padding: 1rem 0;
-        }
-        .info-box {
-            background: #1f1f1f;
+
+        .technologies {
+            background-color: #00adb5;
             padding: 1.5rem;
-            border-radius: 8px;
-            flex: 1;
+            border-radius: 10px;
             text-align: center;
-            transition: background 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
         }
-        .info-box:hover {
-            background: #2b2b2b;
-            transform: scale(1.02);
+
+        .technologies h2 {
+            margin: 0;
+            font-size: 2rem;
+            color: #222831;
         }
-        /* Portfolio Section */
-        .portfolio-section {
-            margin: 2rem 0;
+
+        .technologies-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .technologies-list span {
+            background-color: #eeeeee;
+            color: #222831;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 1.1rem;
+        }
+
+        .projects {
+            margin-top: 2rem;
+        }
+
+        .projects h2 {
             text-align: center;
+            color: #00adb5;
+            font-size: 2rem;
         }
-        .portfolio-grid {
+
+        .projects-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
             margin-top: 1rem;
         }
-        .portfolio-item {
-            background: #2d2d2d;
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            transition: transform 0.3s ease, background 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-        }
-        .portfolio-item:hover {
-            transform: scale(1.05);
-            background: #3b3b3b;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-        }
-        .portfolio-item img {
-            width: 100%;
-            max-width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 8px;
+
+        .project-item {
+            background-color: #393e46;
+            border-radius: 10px;
+            overflow: hidden;
             transition: transform 0.3s ease;
+            text-align: center;
         }
-        .portfolio-item img:hover {
+
+        .project-item:hover {
             transform: scale(1.05);
         }
-        .portfolio-item h3 {
-            margin-top: 1rem;
-            font-size: 1.6rem;
+
+        .project-item img {
+            width: 100%;
+            height: 8cm;
+            object-fit: cover;
         }
-        .portfolio-item p {
-            margin-top: 0.5rem;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
+
+        .project-item a {
+            display: block;
+            color: #00adb5;
+            font-size: 1.2rem;
+            text-decoration: none;
+            padding: 1rem;
         }
+
         footer {
-            background: rgba(31, 31, 31, 0.9);
-            padding: 1.5rem;
+            background-color: #393e46;
+            color: #eeeeee;
+            padding: 1rem 0;
             text-align: center;
-            font-size: 1rem;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+            margin-top: 2rem;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #00adb5;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Jardel Alves</h1>
-        <div class="name-cascade">
-            <p>Jardel Alves</p>
-            <p>Jardel Alves</p>
-            <p>Jardel Alves</p>
-            <p>Jardel Alves</p>
-        </div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        <h1>Jardel Alves - Portfolio</h1>
     </header>
 
-    <section class="banner">
-        <h2>Welcome to My Portfolio</h2>
-        <img src="https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif" alt="Technology GIF" />
-    </section>
-
     <div class="container">
-        <!-- Home Section -->
-        <section id="home">
-            <h2>About Me</h2>
-            <p>
-                Hi, I'm Jardel Alves, a software developer with expertise in Java, Python, and web technologies.
-                I am passionate about building solutions that solve real-world problems and continuously improving my skills.
-                My goal is to create impactful and innovative software applications.
-            </p>
-            <p>
-                With 9 years of experience in software development, I have worked on diverse projects ranging from 
-                web applications to data analysis dashboards. Explore my portfolio below to see some of the projects I have worked on.
-            </p>
-            <div id="map"></div>
-            <div class="info-section">
-                <div class="info-box" id="weather">
-                    <h3>Weather</h3>
-                    <p>Loading...</p>
-                </div>
-                <div class="info-box" id="clock">
-                    <h3>Local Time</h3>
-                    <p id="time">Loading...</p>
-                </div>
+        <!-- Technologies Section -->
+        <section class="technologies">
+            <h2>Technologies I Master</h2>
+            <div class="technologies-list">
+                <span>Java</span>
+                <span>Spring Boot</span>
+                <span>Python</span>
+                <span>Django</span>
+                <span>React</span>
+                <span>Angular</span>
+                <span>Node.js</span>
+                <span>SQL & PL/SQL</span>
+                <span>AWS</span>
+                <span>Docker</span>
+                <span>Kubernetes</span>
             </div>
         </section>
 
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="portfolio-section">
+        <!-- Projects Section -->
+        <section class="projects">
             <h2>My Projects</h2>
-            <p>Below are some of the projects I have worked on, showcasing my skills in full-stack development, data analysis, and more.</p>
-            <div class="portfolio-grid">
-                <a href="https://github.com/jardelva96/task-manager" class="portfolio-item" target="_blank">
-                    <img src="https://source.unsplash.com/random/800x400?task-management" alt="Task Management System">
-                    <h3>Task Management System</h3>
-                    <p>A robust system for managing tasks with user authentication and role management.</p>
-                </a>
-                <a href="https://github.com/jardelva96/weather-app" class="portfolio-item" target="_blank">
-                    <img src="https://source.unsplash.com/random/800x400?weather" alt="Weather App">
-                    <h3>Weather App</h3>
-                    <p>A real-time weather forecasting application using OpenWeatherMap API with dynamic data visualization.</p>
-                </a>
-                <a href="https://github.com/jardelva96/ecommerce-platform" class="portfolio-item" target="_blank">
-                    <img src="https://source.unsplash.com/random/800x400?ecommerce" alt="E-Commerce Platform">
-                    <h3>E-Commerce Platform</h3>
-                    <p>A scalable e-commerce platform with seamless payment integration and user-friendly interface.</p>
-                </a>
-                <a href="https://github.com/jardelva96/data-dashboard" class="portfolio-item" target="_blank">
-                    <img src="https://source.unsplash.com/random/800x400?data-visualization" alt="Data Analysis Dashboard">
-                    <h3>Data Analysis Dashboard</h3>
-                    <p>Interactive dashboards with data visualizations using Power BI and advanced SQL queries.</p>
-                </a>
-                <a href="https://github.com/jardelva96/inventory-management" class="portfolio-item" target="_blank">
-                    <img src="https://source.unsplash.com/random/800x400?inventory" alt="Inventory Management">
-                    <h3>Inventory Management</h3>
-                    <p>A web-based solution for tracking and managing inventory with real-time updates and notifications.</p>
-                </a>
-                <a href="https://github.com/jardelva96/chat-app" class="portfolio-item" target="_blank">
-                    <img src="https://source.unsplash.com/random/800x400?chat" alt="Chat Application">
-                    <h3>Chat Application</h3>
-                    <p>A real-time chat application using WebSockets for seamless communication between users.</p>
-                </a>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <img src="https://via.placeholder.com/300x300?text=Project+1" alt="Project 1">
+                    <a href="https://github.com/jardelva96/task-manager" target="_blank">Task Management System</a>
+                </div>
+                <div class="project-item">
+                    <img src="https://via.placeholder.com/300x300?text=Project+2" alt="Project 2">
+                    <a href="https://github.com/jardelva96/weather-app" target="_blank">Weather App</a>
+                </div>
+                <div class="project-item">
+                    <img src="https://via.placeholder.com/300x300?text=Project+3" alt="Project 3">
+                    <a href="https://github.com/jardelva96/ecommerce-platform" target="_blank">E-Commerce Platform</a>
+                </div>
+                <div class="project-item">
+                    <img src="https://via.placeholder.com/300x300?text=Project+4" alt="Project 4">
+                    <a href="https://github.com/jardelva96/data-dashboard" target="_blank">Data Analysis Dashboard</a>
+                </div>
+                <div class="project-item">
+                    <img src="https://via.placeholder.com/300x300?text=Project+5" alt="Project 5">
+                    <a href="https://github.com/jardelva96/inventory-management" target="_blank">Inventory Management</a>
+                </div>
+                <div class="project-item">
+                    <img src="https://via.placeholder.com/300x300?text=Project+6" alt="Project 6">
+                    <a href="https://github.com/jardelva96/chat-app" target="_blank">Chat Application</a>
+                </div>
             </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="skills-section">
-            <h2>Skills & Technologies</h2>
-            <p>
-                Over the years, I have mastered a variety of programming languages, frameworks, and tools that enable me to develop high-quality software.
-                Here are some of the skills I bring to the table:
-            </p>
-            <ul class="skills-list">
-                <li><a href="#">Java & Spring Boot</a> - Building robust backend services.</li>
-                <li><a href="#">Python & Django/Flask</a> - Web development and API design.</li>
-                <li><a href="#">React & Angular</a> - Modern frontend development for dynamic user interfaces.</li>
-                <li><a href="#">SQL & PL/SQL</a> - Advanced database management and query optimization.</li>
-                <li><a href="#">AWS, Azure & GCP</a> - Cloud computing and serverless architectures.</li>
-                <li><a href="#">Docker & Kubernetes</a> - Containerization and orchestration for scalable applications.</li>
-                <li><a href="#">RESTful APIs & GraphQL</a> - Designing APIs for efficient data exchange.</li>
-                <li><a href="#">Git & Version Control</a> - Collaboration and code management using GitHub and GitLab.</li>
-            </ul>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <h2>Contact Me</h2>
-            <p>
-                I'm always open to new opportunities and collaborations. If you'd like to get in touch, feel free to reach out through any of the following channels:
-            </p>
-            <form class="contact-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" placeholder="Your Name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" placeholder="Your Email" required>
-
-                <label for="message">Message:</label>
-                <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-
-                <button type="submit">Send Message</button>
-            </form>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2024 Jardel Alves. All rights reserved. | Contact me at: <a href="mailto:jardel0101010@gmail.com" style="color:#4e94f3;">jardel0101010@gmail.com</a></p>
-        <p>Follow me on social media:</p>
-        <div class="social-icons">
-            <a href="https://linkedin.com/in/jardel-alves96" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/jardelva96" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://twitter.com/jardel_dev" target="_blank"><i class="fab fa-twitter"></i></a>
-        </div>
+        <p>&copy; 2024 Jardel Alves. All rights reserved. | Contact me at: <a href="mailto:jardel0101010@gmail.com">jardel0101010@gmail.com</a></p>
     </footer>
-
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Initialize the map
-            const map = L.map('map').setView([-27.5954, -48.5480], 12);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 18
-            }).addTo(map);
-            L.marker([-27.5954, -48.5480]).addTo(map)
-                .bindPopup('Florianópolis, SC - You are here!')
-                .openPopup();
-
-            // Update the clock every second
-            const timeElement = document.getElementById('time');
-            const updateTime = () => {
-                const now = new Date();
-                timeElement.textContent = now.toLocaleTimeString();
-            };
-            setInterval(updateTime, 1000);
-            updateTime();
-
-            // Placeholder weather data (replace with API calls for dynamic data)
-            const weatherElement = document.getElementById('weather');
-            weatherElement.innerHTML = '<p>22°C, Clear Skies</p>';
-        });
-    </script>
 </body>
+</html>
