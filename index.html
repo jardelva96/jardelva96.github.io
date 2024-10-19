@@ -3,80 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jardel Alves - Fullstack Developer Portfolio">
-    <title>Jardel Alves - Developer Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <title>Jardel Alves Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        body {
+            background: #121212;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+        }
+        header {
+            background: #1f1f1f;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            font-size: 1.5rem;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 1rem;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .banner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            background: url('https://source.unsplash.com/random/1920x1080') no-repeat center center/cover;
+        }
+        .banner h2 {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 2rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        #map {
+            height: 400px;
+            width: 100%;
+            margin: 2rem 0;
+            border-radius: 8px;
+            border: 2px solid #333;
+        }
+        .info-section {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1rem 0;
+        }
+        .info-box {
+            background: #1f1f1f;
+            padding: 1.5rem;
+            border-radius: 8px;
+            flex: 1;
+            text-align: center;
+        }
+        .info-box h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        footer {
+            background: #1f1f1f;
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .portfolio-section {
+            margin: 2rem 0;
+        }
+        .portfolio-item {
+            background: #2d2d2d;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .portfolio-item img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+        }
+        .portfolio-item h3 {
+            margin-top: 1rem;
+        }
+        .portfolio-item p {
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .portfolio-item a {
+            text-decoration: none;
+            color: #4e94f3;
+        }
+        .portfolio-item a:hover {
+            color: #6ea8ff;
+        }
+    </style>
 </head>
 <body>
-    <!-- HEADER SECTION -->
-    <header class="header">
-        <h1 class="logo">JardelFlix</h1>
-        <nav class="nav">
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <header>
+        <h1>Jardel Alves</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
+    <section class="banner">
         <h2>Welcome to My Portfolio</h2>
-        <p>Explore my latest projects and development skills, all in a visually captivating experience.</p>
     </section>
 
-    <!-- PROJECTS SECTION -->
-    <section id="projects" class="projects-section">
-        <h2>My Projects</h2>
-        <div class="project-carousel">
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998" alt="FaceGeek" class="project-image">
-                <div class="project-info">
-                    <h3>FaceGeek</h3>
-                    <p>A social network for nerds, built with JavaScript, HTML, and CSS.</p>
-                    <a href="https://jardelva96.github.io/facegeek" target="_blank" class="view-project">View Project</a>
+    <div class="container">
+        <section id="home">
+            <div id="map"></div>
+            <div class="info-section">
+                <div class="info-box" id="weather">
+                    <h3>Weather</h3>
+                    <p>Loading...</p>
+                </div>
+                <div class="info-box" id="clock">
+                    <h3>Local Time</h3>
+                    <p id="time">Loading...</p>
                 </div>
             </div>
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df" alt="Data Dashboard" class="project-image">
-                <div class="project-info">
-                    <h3>Data Dashboard</h3>
-                    <p>An interactive data visualization dashboard using React and D3.js.</p>
-                    <a href="https://github.com/jardelva96/project2" target="_blank" class="view-project">View Project</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1564866657310-7d1762ab1ef8" alt="E-commerce API" class="project-image">
-                <div class="project-info">
-                    <h3>E-commerce API</h3>
-                    <p>A RESTful API for e-commerce platforms built with Node.js and Express.</p>
-                    <a href="https://github.com/jardelva96/project3" target="_blank" class="view-project">View Project</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="contact-section">
-        <h2>Contact Me</h2>
-        <form class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
+        <section id="portfolio" class="portfolio-section">
+            <h2>My Projects</h2>
+            <div class="portfolio-item">
+                <img src="https://source.unsplash.com/random/800x400?project1" alt="Project 1">
+                <h3>Task Management System</h3>
+                <p>A robust system for managing tasks with user authentication and project tracking.</p>
+                <a href="https://github.com/jardelva96/task-manager" target="_blank">View Project</a>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://source.unsplash.com/random/800x400?project2" alt="Project 2">
+                <h3>Weather App</h3>
+                <p>A real-time weather forecasting application using OpenWeatherMap API.</p>
+                <a href="https://github.com/jardelva96/weather-app" target="_blank">View Project</a>
+            </div>
+        </section>
+    </div>
 
-    <!-- FOOTER SECTION -->
-    <footer class="footer">
-        <p>&copy; 2024 Jardel Alves - All rights reserved</p>
-        <p>
-            <a href="https://github.com/jardelva96" target="_blank">GitHub</a> |
-            <a href="https://linkedin.com/in/jardel-alves96" target="_blank">LinkedIn</a> |
-            <a href="mailto:jardel.va96@gmail.com">Email Me</a>
-        </p>
+    <footer>
+        <p>&copy; 2024 Jardel Alves. All rights reserved.</p>
     </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const map = L.map('map').setView([-27.5954, -48.5480], 12);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 18
+            }).addTo(map);
+            L.marker([-27.5954, -48.5480]).addTo(map)
+                .bindPopup('Florianópolis, SC - You are here!')
+                .openPopup();
+
+            // Clock
+            const timeElement = document.getElementById('time');
+            const updateTime = () => {
+                const now = new Date();
+                timeElement.textContent = now.toLocaleTimeString();
+            };
+            setInterval(updateTime, 1000);
+            updateTime();
+
+            // Placeholder for Weather API
+            const weatherElement = document.getElementById('weather');
+            weatherElement.innerHTML = '<p>22°C, Clear Skies</p>';
+        });
+    </script>
 </body>
 </html>
