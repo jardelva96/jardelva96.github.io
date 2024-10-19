@@ -13,7 +13,6 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             font-size: 118%;
-            line-height: 1.6;
         }
         header {
             background: #1f1f1f;
@@ -21,6 +20,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-left: 260px; /* Ajustado para alinhamento */
         }
         header h1 {
             font-size: 2.2rem;
@@ -37,7 +37,7 @@
         .sidebar {
             background: #2d2d2d;
             padding: 1.5rem;
-            width: 300px;
+            width: 250px;
             position: fixed;
             top: 0;
             left: 0;
@@ -64,9 +64,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 350px;
+            height: 250px;
             background: url('https://source.unsplash.com/random/1920x1080?technology') no-repeat center center/cover;
-            margin-left: 320px;
+            margin-left: 270px;
         }
         .banner h2 {
             background: rgba(0, 0, 0, 0.5);
@@ -75,13 +75,13 @@
             font-size: 2.5rem;
         }
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 2rem;
-            margin-left: 320px;
+            margin-left: 270px;
         }
         #map {
-            height: 400px;
+            height: 350px;
             width: 100%;
             margin: 2rem 0;
             border-radius: 8px;
@@ -95,33 +95,28 @@
         }
         .info-box {
             background: #1f1f1f;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 8px;
             flex: 1;
             text-align: center;
-        }
-        .info-box h3 {
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
         }
         .portfolio-section {
             margin: 2rem 0;
         }
         .portfolio-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
         }
         .portfolio-item {
             background: #2d2d2d;
             padding: 1.5rem;
             border-radius: 8px;
-            flex: 1 1 calc(50% - 1rem);
             text-align: center;
         }
         .portfolio-item img {
             width: 100%;
-            max-width: 600px;
+            max-width: 100%;
             border-radius: 8px;
         }
         .portfolio-item h3 {
@@ -141,38 +136,12 @@
         .portfolio-item a:hover {
             color: #6ea8ff;
         }
-        .skills-section {
-            background: #1f1f1f;
-            padding: 2rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-        .skills-section h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .skill {
-            background: #333;
-            padding: 1rem;
-            border-radius: 8px;
-            flex: 1 1 45%;
-            text-align: center;
-            font-size: 1.1rem;
-        }
-        .skill a {
-            color: #4e94f3;
-            text-decoration: none;
-        }
         footer {
             background: #1f1f1f;
             padding: 1rem;
             text-align: center;
             font-size: 1rem;
+            margin-left: 270px;
         }
     </style>
 </head>
@@ -259,22 +228,6 @@
                 </div>
             </div>
         </section>
-
-        <section id="skills" class="skills-section">
-            <h2>Skills & Technologies</h2>
-            <div class="skills-list">
-                <div class="skill"><a href="#">Java & Spring Boot</a></div>
-                <div class="skill"><a href="#">Python & Django/Flask</a></div>
-                <div class="skill"><a href="#">React & Angular</a></div>
-                <div class="skill"><a href="#">SQL & PL/SQL</a></div>
-                <div class="skill"><a href="#">AWS, Azure & GCP</a></div>
-                <div class="skill"><a href="#">Docker & Kubernetes</a></div>
-                <div class="skill"><a href="#">RESTful APIs & GraphQL</a></div>
-                <div class="skill"><a href="#">Git & Version Control</a></div>
-                <div class="skill"><a href="#">Node.js & Express</a></div>
-                <div class="skill"><a href="#">HTML5, CSS3 & JavaScript</a></div>
-            </div>
-        </section>
     </div>
 
     <footer>
@@ -282,7 +235,6 @@
     </footer>
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const map = L.map('map').setView([-27.5954, -48.5480], 12);
