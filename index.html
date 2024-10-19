@@ -20,7 +20,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-left: 260px; /* Ajustado para alinhamento */
         }
         header h1 {
             font-size: 2.2rem;
@@ -34,39 +33,14 @@
         nav a:hover {
             text-decoration: underline;
         }
-        .sidebar {
-            background: #2d2d2d;
-            padding: 1.5rem;
-            width: 250px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            overflow-y: auto;
-        }
-        .sidebar h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .sidebar ul li {
-            margin: 0.8rem 0;
-        }
-        .sidebar ul li a {
-            color: #4e94f3;
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
         .banner {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 250px;
+            justify-content: center;
+            height: 300px;
             background: url('https://source.unsplash.com/random/1920x1080?technology') no-repeat center center/cover;
-            margin-left: 270px;
+            text-align: center;
         }
         .banner h2 {
             background: rgba(0, 0, 0, 0.5);
@@ -74,16 +48,22 @@
             border-radius: 8px;
             font-size: 2.5rem;
         }
+        .banner img {
+            width: 150px;
+            height: auto;
+            margin-top: 1rem;
+        }
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
-            margin-left: 270px;
         }
         #map {
-            height: 350px;
-            width: 100%;
-            margin: 2rem 0;
+            height: 200px;
+            width: 300px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
             border-radius: 8px;
             border: 2px solid #333;
         }
@@ -102,11 +82,13 @@
         }
         .portfolio-section {
             margin: 2rem 0;
+            text-align: center;
         }
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
+            margin-top: 1rem;
         }
         .portfolio-item {
             background: #2d2d2d;
@@ -141,23 +123,10 @@
             padding: 1rem;
             text-align: center;
             font-size: 1rem;
-            margin-left: 270px;
         }
     </style>
 </head>
 <body>
-    <div class="sidebar">
-        <h2>My Courses</h2>
-        <ul>
-            <li><a href="#">Bachelor's in Mathematics</a></li>
-            <li><a href="#">Bachelor's in Analysis & Dev. Systems</a></li>
-            <li><a href="#">Bachelor's in English</a></li>
-            <li><a href="#">Specialization in Software Engineering</a></li>
-            <li><a href="#">Specialization in AI</a></li>
-            <li><a href="#">Certifications in AWS</a></li>
-        </ul>
-    </div>
-
     <header>
         <h1>Jardel Alves</h1>
         <nav>
@@ -170,11 +139,13 @@
 
     <section class="banner">
         <h2>Welcome to My Portfolio</h2>
+        <img src="https://media.giphy.com/media/l2JHRhAtnJSDNJ2py/giphy.gif" alt="Cute Demon" />
     </section>
 
     <div class="container">
+        <div id="map"></div>
+
         <section id="home">
-            <div id="map"></div>
             <div class="info-section">
                 <div class="info-box" id="weather">
                     <h3>Weather</h3>
