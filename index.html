@@ -12,26 +12,53 @@
             color: #fff;
             font-family: 'Arial', sans-serif;
             margin: 0;
+            font-size: 118%;
             line-height: 1.6;
         }
         header {
             background: #1f1f1f;
-            padding: 1rem 2rem;
+            padding: 1.2rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         header h1 {
-            font-size: 2rem;
+            font-size: 2.2rem;
         }
         nav a {
             color: #fff;
             text-decoration: none;
             margin-left: 1rem;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
         }
         nav a:hover {
             text-decoration: underline;
+        }
+        .sidebar {
+            background: #2d2d2d;
+            padding: 1.5rem;
+            width: 300px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            overflow-y: auto;
+        }
+        .sidebar h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 0.8rem 0;
+        }
+        .sidebar ul li a {
+            color: #4e94f3;
+            text-decoration: none;
+            font-size: 1.1rem;
         }
         .banner {
             display: flex;
@@ -39,6 +66,7 @@
             align-items: center;
             height: 350px;
             background: url('https://source.unsplash.com/random/1920x1080?technology') no-repeat center center/cover;
+            margin-left: 320px;
         }
         .banner h2 {
             background: rgba(0, 0, 0, 0.5);
@@ -50,6 +78,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
+            margin-left: 320px;
         }
         #map {
             height: 400px;
@@ -70,7 +99,6 @@
             border-radius: 8px;
             flex: 1;
             text-align: center;
-            font-size: 1.2rem;
         }
         .info-box h3 {
             margin-bottom: 1rem;
@@ -79,14 +107,16 @@
         .portfolio-section {
             margin: 2rem 0;
         }
+        .portfolio-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
         .portfolio-item {
             background: #2d2d2d;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 8px;
-            margin-bottom: 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex: 1 1 calc(50% - 1rem);
             text-align: center;
         }
         .portfolio-item img {
@@ -96,7 +126,7 @@
         }
         .portfolio-item h3 {
             margin-top: 1rem;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
         }
         .portfolio-item p {
             margin-top: 0.5rem;
@@ -134,6 +164,10 @@
             text-align: center;
             font-size: 1.1rem;
         }
+        .skill a {
+            color: #4e94f3;
+            text-decoration: none;
+        }
         footer {
             background: #1f1f1f;
             padding: 1rem;
@@ -143,6 +177,18 @@
     </style>
 </head>
 <body>
+    <div class="sidebar">
+        <h2>My Courses</h2>
+        <ul>
+            <li><a href="#">Bachelor's in Mathematics</a></li>
+            <li><a href="#">Bachelor's in Analysis & Dev. Systems</a></li>
+            <li><a href="#">Bachelor's in English</a></li>
+            <li><a href="#">Specialization in Software Engineering</a></li>
+            <li><a href="#">Specialization in AI</a></li>
+            <li><a href="#">Certifications in AWS</a></li>
+        </ul>
+    </div>
+
     <header>
         <h1>Jardel Alves</h1>
         <nav>
@@ -174,33 +220,59 @@
 
         <section id="portfolio" class="portfolio-section">
             <h2>My Projects</h2>
-            <div class="portfolio-item">
-                <img src="https://source.unsplash.com/random/800x400?project1" alt="Project 1">
-                <h3>Task Management System</h3>
-                <p>A robust system for managing tasks with user authentication and project tracking.</p>
-                <a href="https://github.com/jardelva96/task-manager" target="_blank">View Project</a>
-            </div>
-            <div class="portfolio-item">
-                <img src="https://source.unsplash.com/random/800x400?project2" alt="Project 2">
-                <h3>Weather App</h3>
-                <p>A real-time weather forecasting application using OpenWeatherMap API.</p>
-                <a href="https://github.com/jardelva96/weather-app" target="_blank">View Project</a>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://source.unsplash.com/random/800x400?project1" alt="Project 1">
+                    <h3>Task Management System</h3>
+                    <p>A robust system for managing tasks with user authentication.</p>
+                    <a href="https://github.com/jardelva96/task-manager" target="_blank">View Project</a>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://source.unsplash.com/random/800x400?project2" alt="Project 2">
+                    <h3>Weather App</h3>
+                    <p>A real-time weather forecasting application using OpenWeatherMap API.</p>
+                    <a href="https://github.com/jardelva96/weather-app" target="_blank">View Project</a>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://source.unsplash.com/random/800x400?project3" alt="Project 3">
+                    <h3>E-Commerce Platform</h3>
+                    <p>A scalable e-commerce platform with payment integration.</p>
+                    <a href="https://github.com/jardelva96/ecommerce-platform" target="_blank">View Project</a>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://source.unsplash.com/random/800x400?project4" alt="Project 4">
+                    <h3>Data Analysis Dashboard</h3>
+                    <p>Interactive dashboards with data visualizations using Power BI.</p>
+                    <a href="https://github.com/jardelva96/data-dashboard" target="_blank">View Project</a>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://source.unsplash.com/random/800x400?project5" alt="Project 5">
+                    <h3>Inventory Management</h3>
+                    <p>A web-based solution for tracking and managing inventory.</p>
+                    <a href="https://github.com/jardelva96/inventory-management" target="_blank">View Project</a>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://source.unsplash.com/random/800x400?project6" alt="Project 6">
+                    <h3>Chat Application</h3>
+                    <p>A real-time chat application using WebSockets.</p>
+                    <a href="https://github.com/jardelva96/chat-app" target="_blank">View Project</a>
+                </div>
             </div>
         </section>
 
         <section id="skills" class="skills-section">
             <h2>Skills & Technologies</h2>
             <div class="skills-list">
-                <div class="skill">Java & Spring Boot</div>
-                <div class="skill">Python & Django/Flask</div>
-                <div class="skill">React & Angular</div>
-                <div class="skill">SQL & PL/SQL</div>
-                <div class="skill">AWS, Azure & GCP</div>
-                <div class="skill">Docker & Kubernetes</div>
-                <div class="skill">RESTful APIs & GraphQL</div>
-                <div class="skill">Git & Version Control</div>
-                <div class="skill">Node.js & Express</div>
-                <div class="skill">HTML5, CSS3 & JavaScript</div>
+                <div class="skill"><a href="#">Java & Spring Boot</a></div>
+                <div class="skill"><a href="#">Python & Django/Flask</a></div>
+                <div class="skill"><a href="#">React & Angular</a></div>
+                <div class="skill"><a href="#">SQL & PL/SQL</a></div>
+                <div class="skill"><a href="#">AWS, Azure & GCP</a></div>
+                <div class="skill"><a href="#">Docker & Kubernetes</a></div>
+                <div class="skill"><a href="#">RESTful APIs & GraphQL</a></div>
+                <div class="skill"><a href="#">Git & Version Control</a></div>
+                <div class="skill"><a href="#">Node.js & Express</a></div>
+                <div class="skill"><a href="#">HTML5, CSS3 & JavaScript</a></div>
             </div>
         </section>
     </div>
@@ -221,7 +293,6 @@
                 .bindPopup('Florianópolis, SC - You are here!')
                 .openPopup();
 
-            // Clock
             const timeElement = document.getElementById('time');
             const updateTime = () => {
                 const now = new Date();
@@ -230,7 +301,6 @@
             setInterval(updateTime, 1000);
             updateTime();
 
-            // Placeholder for Weather API
             const weatherElement = document.getElementById('weather');
             weatherElement.innerHTML = '<p>22°C, Clear Skies</p>';
         });
