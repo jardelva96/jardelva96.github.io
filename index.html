@@ -15,14 +15,40 @@
             font-size: 118%;
         }
         header {
-            background: #1f1f1f;
+            background: rgba(31, 31, 31, 0.8);
             padding: 1.2rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
         header h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
+            position: relative;
+            z-index: 2;
+            animation: floating 5s infinite alternate ease-in-out;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(10px); }
+        }
+        .name-cascade {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: rgba(255, 255, 255, 0.1);
+            font-size: 2.5rem;
+            z-index: 1;
+            overflow: hidden;
+            animation: scrollCascade 10s linear infinite;
+        }
+        @keyframes scrollCascade {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100%); }
+        }
+        .name-cascade div {
+            display: flex;
+            flex-direction: column;
         }
         nav a {
             color: #fff;
@@ -33,13 +59,30 @@
         nav a:hover {
             text-decoration: underline;
         }
+        .dynamic-box {
+            background: #333;
+            width: 100px;
+            height: 50px;
+            transition: all 0.3s ease;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 3;
+        }
+        .dynamic-box:hover {
+            width: 150px;
+            height: 100px;
+            background: #444;
+            cursor: url('https://example.com/fire-cursor.png'), auto;
+        }
         .banner {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 300px;
+            height: 350px;
             background: url('https://source.unsplash.com/random/1920x1080?technology') no-repeat center center/cover;
+            background-size: cover;
             text-align: center;
         }
         .banner h2 {
@@ -59,11 +102,9 @@
             padding: 2rem;
         }
         #map {
-            height: 200px;
-            width: 300px;
-            position: absolute;
-            top: 20px;
-            right: 20px;
+            height: 240px;
+            width: 360px;
+            margin: 2rem auto;
             border-radius: 8px;
             border: 2px solid #333;
         }
@@ -95,6 +136,10 @@
             padding: 1.5rem;
             border-radius: 8px;
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .portfolio-item:hover {
+            transform: scale(1.05);
         }
         .portfolio-item img {
             width: 100%;
@@ -114,12 +159,12 @@
             text-decoration: none;
             color: #4e94f3;
             font-size: 1.1rem;
-        }
-        .portfolio-item a:hover {
-            color: #6ea8ff;
+            display: block;
+            height: 100%;
+            width: 100%;
         }
         footer {
-            background: #1f1f1f;
+            background: rgba(31, 31, 31, 0.8);
             padding: 1rem;
             text-align: center;
             font-size: 1rem;
@@ -129,6 +174,17 @@
 <body>
     <header>
         <h1>Jardel Alves</h1>
+        <div class="dynamic-box"></div>
+        <div class="name-cascade">
+            <div>
+                <p>Jardel Alves</p>
+                <p>Jardel Alves</p>
+                <p>Jardel Alves</p>
+                <p>Jardel Alves</p>
+                <p>Jardel Alves</p>
+                <p>Jardel Alves</p>
+            </div>
+        </div>
         <nav>
             <a href="#home">Home</a>
             <a href="#portfolio">Portfolio</a>
@@ -161,42 +217,36 @@
         <section id="portfolio" class="portfolio-section">
             <h2>My Projects</h2>
             <div class="portfolio-grid">
-                <div class="portfolio-item">
+                <a href="https://github.com/jardelva96/task-manager" class="portfolio-item" target="_blank">
                     <img src="https://source.unsplash.com/random/800x400?project1" alt="Project 1">
                     <h3>Task Management System</h3>
                     <p>A robust system for managing tasks with user authentication.</p>
-                    <a href="https://github.com/jardelva96/task-manager" target="_blank">View Project</a>
-                </div>
-                <div class="portfolio-item">
+                </a>
+                <a href="https://github.com/jardelva96/weather-app" class="portfolio-item" target="_blank">
                     <img src="https://source.unsplash.com/random/800x400?project2" alt="Project 2">
                     <h3>Weather App</h3>
                     <p>A real-time weather forecasting application using OpenWeatherMap API.</p>
-                    <a href="https://github.com/jardelva96/weather-app" target="_blank">View Project</a>
-                </div>
-                <div class="portfolio-item">
+                </a>
+                <a href="https://github.com/jardelva96/ecommerce-platform" class="portfolio-item" target="_blank">
                     <img src="https://source.unsplash.com/random/800x400?project3" alt="Project 3">
                     <h3>E-Commerce Platform</h3>
                     <p>A scalable e-commerce platform with payment integration.</p>
-                    <a href="https://github.com/jardelva96/ecommerce-platform" target="_blank">View Project</a>
-                </div>
-                <div class="portfolio-item">
+                </a>
+                <a href="https://github.com/jardelva96/data-dashboard" class="portfolio-item" target="_blank">
                     <img src="https://source.unsplash.com/random/800x400?project4" alt="Project 4">
                     <h3>Data Analysis Dashboard</h3>
                     <p>Interactive dashboards with data visualizations using Power BI.</p>
-                    <a href="https://github.com/jardelva96/data-dashboard" target="_blank">View Project</a>
-                </div>
-                <div class="portfolio-item">
+                </a>
+                <a href="https://github.com/jardelva96/inventory-management" class="portfolio-item" target="_blank">
                     <img src="https://source.unsplash.com/random/800x400?project5" alt="Project 5">
                     <h3>Inventory Management</h3>
                     <p>A web-based solution for tracking and managing inventory.</p>
-                    <a href="https://github.com/jardelva96/inventory-management" target="_blank">View Project</a>
-                </div>
-                <div class="portfolio-item">
+                </a>
+                <a href="https://github.com/jardelva96/chat-app" class="portfolio-item" target="_blank">
                     <img src="https://source.unsplash.com/random/800x400?project6" alt="Project 6">
                     <h3>Chat Application</h3>
                     <p>A real-time chat application using WebSockets.</p>
-                    <a href="https://github.com/jardelva96/chat-app" target="_blank">View Project</a>
-                </div>
+                </a>
             </div>
         </section>
     </div>
