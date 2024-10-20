@@ -1,0 +1,24 @@
+import matplotlib.pyplot as plt
+
+# Data for technologies and their respective knowledge levels as percentages
+technologies = ["Java", "Spring Boot", "Python", "React", "Node.js", "SQL & PL/SQL", "Docker", "AWS", "C & C++"]
+knowledge_level = [90, 85, 80, 75, 70, 85, 65, 60, 50]
+
+# Create the horizontal bar chart
+plt.figure(figsize=(6, 6))  # Size adjusted to roughly 500x500 pixels
+bars = plt.barh(technologies, knowledge_level, color='#00adb5')
+plt.gca().invert_yaxis()  # Invert the order to have the highest knowledge at the top
+plt.title('Knowledge Level by Technology', fontsize=16)
+plt.xlabel('Knowledge Level (%)', fontsize=14)
+plt.xticks(range(0, 101, 10))
+
+# Add labels to the sides of the bars for better readability
+for bar in bars:
+    plt.text(bar.get_width() + 1, bar.get_y() + bar.get_height()/2, f'{bar.get_width()}%', 
+             va='center', fontsize=12, color='#222831')
+
+# Save the image as a PNG file
+plt.tight_layout()
+plt.grid(axis='x', linestyle='--', alpha=0.7)
+plt.savefig('/mnt/data/knowledge_chart.png')
+plt.show()
