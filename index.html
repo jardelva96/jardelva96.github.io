@@ -207,11 +207,24 @@
     <img src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/knowledge_chart.png" alt="Knowledge Chart" width="500" height="300">
 </div>
 
-
-       <div class="map-container">
-    <h2>Localização - Florianópolis, SC</h2>
-    <div id="map"></div>
+ <!-- Contêiner principal com o gráfico, mapa e relógio -->
+    <div class="top-section">
+        <div class="clock-container">
+            <h2>Relógio e Data</h2>
+            <div class="clock" id="clock"></div>
+            <div class="date" id="date"></div>
         </div>
+
+        <div class="chart-container">
+            <h2>Knowledge Level by Technology</h2>
+            <img class="chart" src="path-to-your-chart-image.png" alt="Knowledge Level by Technology">
+        </div>
+
+        <div class="map-container">
+            <h2>Florianópolis, SC</h2>
+            <div id="map"></div>
+        </div>
+    </div>
 
 
     <div class="container">
@@ -272,21 +285,39 @@
     </footer>
 
 <script>
+        // Função para inicializar o mapa do Google Maps
         function initMap() {
-            // Coordenadas de Florianópolis, SC
             const florianopolis = { lat: -27.5954, lng: -48.5480 };
-            // Criação do mapa centrado em Florianópolis
             const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 12,
+                zoom: 12, // Ajuste o nível de zoom conforme desejado
                 center: florianopolis,
             });
-            // Adiciona um marcador para Florianópolis
             new google.maps.Marker({
                 position: florianopolis,
                 map: map,
             });
         }
+
+        // Script para atualizar o relógio e a data
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const year = now.getFullYear();
+
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('date').textContent = `${day}/${month}/${year}`;
+        }
+
+        // Atualiza o relógio a cada segundo
+        setInterval(updateTime, 1000);
+        updateTime();
     </script>
+
+    <!-- Script do Google Maps -->
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
     </script>
