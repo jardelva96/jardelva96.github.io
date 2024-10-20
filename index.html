@@ -1,213 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jardel Alves - Portfolio</title>
-   <style>
-    /* Ajustes de layout para dispositivos móveis */
-    @media (max-width: 768px) {
-        header h1 {
-            font-size: 2rem;
+    <title>Jardel Alves - Portfólio</title>
+    <style>
+        /* Estilo geral */
+        body {
+            background-color: #222831;
+            color: #eeeeee;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
         }
-        .project-item a {
-            font-size: 1.2rem;
+
+        h1 {
+            color: #00adb5;
+            text-align: center;
+            margin: 20px 0;
         }
-    }
 
-    /* Estilos gerais */
-    body {
-        background-color: #222831;
-        color: #eeeeee;
-        font-family: 'Roboto', sans-serif;
-        margin: 0;
-        padding: 0;
-    }
+        /* Estilo do contêiner flexível */
+        .top-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
 
-    h1, h2, .project-item a {
-        font-weight: 600;
-    }
-
-    header {
-        background-color: #393e46;
-        padding: 1rem 2rem;
-        text-align: center;
-    }
-
-    header h1 {
-        color: #00adb5;
-        font-size: 2.5rem;
-        margin: 0;
-    }
-
-    .container {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 2rem;
-    }
-
-    .technologies, .map-container, .chart-container {
-        background-color: #00adb5;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        margin-bottom: 2rem;
-        text-align: center;
-    }
-
-    .technologies h2, .map-container h2, .chart-section h2 {
-        font-size: 24px;
-        color: #222831;
-        margin-bottom: 15px;
-    }
-
-    .technologies-list {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 1rem;
-    }
-
-    .technologies-list a {
-        background-color: #eeeeee;
-        color: #222831;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        font-size: 1rem;
-        text-decoration: none;
-        transition: background 0.3s ease;
-    }
-
-    .technologies-list a:hover {
-        background-color: #222831;
-        color: #00adb5;
-    }
-
-    /* Estilos para a seção de projetos */
-    .projects {
-        margin-top: 2rem;
-    }
-
-    .projects h2 {
-        color: #00adb5;
-        font-size: 2rem;
-        text-align: center;
-    }
-
-    .projects-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1.5rem;
-        margin-top: 1rem;
-    }
-
-    .project-item {
-        background-color: #393e46;
-        border-radius: 10px;
-        transition: transform 0.3s ease;
-        text-align: center;
-        width: 300px;
-        height: 350px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .project-item:hover {
-        transform: scale(1.05);
-    }
-
-    .project-item img {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-    }
-
-    .project-item a {
-        color: #00adb5;
-        font-size: 1.44rem;
-        font-weight: bold;
-        text-decoration: none;
-        padding: 0.5rem;
-        width: 100%;
-        background-color: #393e46;
-        text-align: center;
-    }
-
-    /* Estilos para gráficos e mapas */
-    .chart-section, .map-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: #222831;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .knowledge-chart {
-        width: 100%;
-        max-width: 800px;
-        height: 300px;
-        object-fit: cover;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .knowledge-chart:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-    }
-
-    #map {
-        width: 100%;
-        height: 300px;
-        border-radius: 10px;
-    }
-
-    footer {
-        background-color: #393e46;
-        color: #eeeeee;
-        padding: 1rem 0;
-        text-align: center;
-        margin-top: 2rem;
-    }
-
-    footer p {
-        font-size: 0.9rem;
-    }
-
-    footer a {
-        color: #00adb5;
-        text-decoration: none;
-    }
-
-    footer a:hover {
-        text-decoration: underline;
-    }
-        #map {
-            width: 100%;
-            height: 400px;
+        /* Estilo dos elementos */
+        .clock-container, .chart-container, .map-container {
+            background-color: #393e46;
+            padding: 10px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 500px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
-    
-</style>
 
+        .chart {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .clock, .date {
+            font-size: 1.5rem;
+            color: #00adb5;
+            margin: 5px 0;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>JARDEL ALVES - PORTFOLIO</h1>
-    </header>
+    <h1>Jardel Alves - Portfólio</h1>
 
-<div class="chart-container">
-    <img src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/knowledge_chart.png" alt="Knowledge Chart" width="500" height="300">
-</div>
-
- <!-- Contêiner principal com o gráfico, mapa e relógio -->
+    <!-- Contêiner principal com o relógio, gráfico e mapa -->
     <div class="top-section">
         <div class="clock-container">
             <h2>Relógio e Data</h2>
@@ -217,7 +76,7 @@
 
         <div class="chart-container">
             <h2>Knowledge Level by Technology</h2>
-            <img class="chart" src="path-to-your-chart-image.png" alt="Knowledge Level by Technology">
+            <img class="chart" src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/knowledge_chart.png" alt="Knowledge Level by Technology">
         </div>
 
         <div class="map-container">
@@ -226,70 +85,12 @@
         </div>
     </div>
 
-
-    <div class="container">
-        <!-- Technologies Section -->
-        <section class="technologies">
-            <h2>Technologies</h2>
-            <div class="technologies-list">
-                <a href="https://www.oracle.com/java/" target="_blank">Java</a>
-                <a href="https://spring.io/" target="_blank">Spring Boot</a>
-                <a href="https://www.python.org/" target="_blank">Python</a>
-                <a href="https://ccppbrasil.github.io/" target="_blank">C & C++</a>
-                <a href="https://www.djangoproject.com/" target="_blank">Django</a>
-                <a href="https://react.dev/" target="_blank">React</a>
-                <a href="https://angular.io/" target="_blank">Angular</a>
-                <a href="https://nodejs.org/" target="_blank">Node.js</a>
-                <a href="https://www.oracle.com/database/technologies/appdev/plsql.html" target="_blank">SQL & PL/SQL</a>
-                <a href="https://aws.amazon.com/" target="_blank">AWS</a>
-                <a href="https://www.docker.com/" target="_blank">Docker</a>
-                <a href="https://kubernetes.io/" target="_blank">Kubernetes</a>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section class="projects">
-            <h2>My Projects</h2>
-            <div class="projects-grid">
-                <div class="project-item">
-                    <img src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/task.jpg" alt="Task Management System">
-                    <a href="https://github.com/jardelva96/task-manager" target="_blank">Task Management System</a>
-                </div>
-                <div class="project-item">
-                    <img src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/ecommerce.jpg" alt="E-Commerce Platform">
-                    <a href="https://github.com/jardelva96/ecommerce-platform" target="_blank">E-Commerce Platform</a>
-                </div>
-                <div class="project-item">
-                    <img src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/weather.jpg" alt="Weather App">     
-                    <a href="https://github.com/jardelva96/weather-app" target="_blank">Weather App</a>                                
-                </div>
-                <div class="project-item">
-                    <img src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/data.jpg" alt="Data Analysis Dashboard">
-                    <a href="https://github.com/jardelva96/data-dashboard" target="_blank">Data Analysis Dashboard</a>
-                </div>
-                <div class="project-item">
-                    <img src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/inventory.jpg" alt="Inventory Management">
-                    <a href="https://github.com/jardelva96/inventory-management" target="_blank">Inventory Management</a>
-                </div>
-                <div class="project-item">
-                    <img src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/chat.jpg" alt="Chat Application">
-                    <a href="https://github.com/jardelva96/chat-app" target="_blank">Chat Application</a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 Jardel Alves. All rights reserved. | Contact me at: <a href="mailto:jardel.va96@gmail.com">jardel.va96@gmail.com</a></p>
-        <p>WhatsApp: <a href="https://wa.me/5548988168349?text=Olá%20Jardel!" target="_blank">+55 48 98816-8349</a></p>
-    </footer>
-
-<script>
+    <script>
         // Função para inicializar o mapa do Google Maps
         function initMap() {
             const florianopolis = { lat: -27.5954, lng: -48.5480 };
             const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 12, // Ajuste o nível de zoom conforme desejado
+                zoom: 12,
                 center: florianopolis,
             });
             new google.maps.Marker({
@@ -321,8 +122,5 @@
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
     </script>
-
-
-
 </body>
 </html>
