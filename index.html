@@ -291,6 +291,29 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
+.map-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #222831;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.map-container h2 {
+    color: #00adb5;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#map {
+    width: 100%;
+    height: 300px;  /* Define a altura do mapa */
+    border-radius: 10px;
+}
 
     </style>
 </head>
@@ -303,6 +326,15 @@
     <img src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/knowledge_chart.png" alt="Knowledge Chart" width="500" height="300">
 </div>
 
+<div class="top-section">
+    <div class="chart-container">
+        <img src="images/enhanced_knowledge_chart.png" alt="Knowledge Level by Technology" class="knowledge-chart">
+    </div>
+    <div class="map-container">
+        <h2>My Location</h2>
+        <div id="map"></div>
+    </div>
+</div>
 
 
 
@@ -362,5 +394,23 @@
         <p>&copy; 2024 Jardel Alves. All rights reserved. | Contact me at: <a href="mailto:jardel.va96@gmail.com">jardel.va96@gmail.com</a></p>
         <p>WhatsApp: <a href="https://wa.me/5548988168349?text=Olá%20Jardel!" target="_blank">+55 48 98816-8349</a></p>
     </footer>
+
+    <script>
+    function initMap() {
+        const myLocation = { lat: -27.5954, lng: -48.5480 }; // Substitua pelas coordenadas da sua localização atual
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 12,
+            center: myLocation,
+        });
+        new google.maps.Marker({
+            position: myLocation,
+            map: map,
+        });
+    }
+</script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+</script>
+
 </body>
 </html>
