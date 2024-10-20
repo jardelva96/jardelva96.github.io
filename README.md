@@ -26,10 +26,4 @@ This portfolio is built using HTML, CSS, and JavaScript, and integrates with the
 - **OpenWeatherMap API** for weather data.
 - **Responsive Design** for a seamless experience on all devices.
 
-## 🛠 Setup & Installation
 
-To run this project locally, follow these steps:
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/jardelva96/portfolio.git
