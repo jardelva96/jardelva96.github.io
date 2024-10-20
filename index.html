@@ -249,11 +249,28 @@
         <img class="chart" src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/knowledge_chart.png" alt="Knowledge Level by Technology" width="500" height="300">
     </div>
 
-    <div class="map-container">
-        <h2>Florianópolis, SC</h2>
-        <div id="map"></div>
+    <div class="content-container">
+        <!-- Clock Box -->
+        <div class="box">
+            <div class="clock-frame">
+                <div>
+                    <div id="time" class="clock">00:00:00</div>
+                    <div id="date" class="clock" style="font-size: 1rem;">dd/mm/yyyy</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart Box -->
+        <div class="box chart-container">
+            <img src="https://via.placeholder.com/300x300?text=Chart" alt="Knowledge Level by Technology">
+        </div>
+
+        <!-- Map Box -->
+        <div class="box">
+            <div id="map"></div>
+        </div>
     </div>
-</div>
+
 
 
     <div class="container">
@@ -360,7 +377,31 @@
         }
     });
 </script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize the map
+            const map = L.map('map').setView([-27.5954, -48.5480], 12);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 18,
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+            L.marker([-27.5954, -48.5480]).addTo(map)
+                .bindPopup('Florianópolis, SC - Você está aqui!')
+                .openPopup();
 
+            // Update the clock every second
+            const timeElement = document.getElementById('time');
+            const dateElement = document.getElementById('date');
+            const updateTime = () => {
+                const now = new Date();
+                timeElement.textContent = now.toLocaleTimeString();
+                dateElement.textContent = now.toLocaleDateString();
+            };
+            setInterval(updateTime, 1000);
+            updateTime();
+        });
+    </script>
 
 </body>
 </html>
