@@ -395,22 +395,47 @@
         <p>WhatsApp: <a href="https://wa.me/5548988168349?text=Olá%20Jardel!" target="_blank">+55 48 98816-8349</a></p>
     </footer>
 
-    <script>
+  <script>
     function initMap() {
-        const myLocation = { lat: -27.5954, lng: -48.5480 }; // Substitua pelas coordenadas da sua localização atual
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 12,
-            center: myLocation,
-        });
-        new google.maps.Marker({
-            position: myLocation,
-            map: map,
-        });
+        // Check if geolocation is supported by the browser
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    const map = new google.maps.Map(document.getElementById("map"), {
+                        zoom: 12,
+                        center: userLocation,
+                    });
+                    new google.maps.Marker({
+                        position: userLocation,
+                        map: map,
+                        title: "You are here!",
+                    });
+                },
+                () => {
+                    handleLocationError(true);
+                }
+            );
+        } else {
+            handleLocationError(false);
+        }
+    }
+
+    function handleLocationError(browserHasGeolocation) {
+        const errorDiv = document.createElement("div");
+        errorDiv.textContent = browserHasGeolocation
+            ? "Error: Geolocation failed."
+            : "Error: Your browser doesn't support geolocation.";
+        document.getElementById("map").appendChild(errorDiv);
     }
 </script>
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
 </script>
+
 
 </body>
 </html>
