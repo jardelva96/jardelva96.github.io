@@ -20,10 +20,28 @@ This portfolio is built using HTML, CSS, and JavaScript, and integrates with the
 
 ## 💡 Technologies Used
 
-- **HTML5** and **CSS3** for structure and styling.
-- **JavaScript** for dynamic content and API integrations.
-- **GitHub API** for listing my latest projects.
-- **OpenWeatherMap API** for weather data.
-- **Responsive Design** for a seamless experience on all devices.
-
+React for building interactive and reusable UI components.
+Node.js for backend services and server-side logic.
+Express.js for building RESTful APIs.
+MongoDB for managing data in a NoSQL database.
+MySQL or PostgreSQL for relational database management.
+Docker for containerization, ensuring consistency across different environments.
+AWS (Amazon Web Services) for deploying and hosting the website.
+CI/CD (Continuous Integration/Continuous Deployment) using GitHub Actions for automated testing and deployment.
+Sass for advanced CSS with variables, nested rules, and mixins.
+Webpack for bundling JavaScript modules and assets.
+TypeScript for type safety in JavaScript, improving code quality.
+Jest and React Testing Library for unit testing.
+Google Analytics for tracking user interactions and understanding audience behavior.
+SEO (Search Engine Optimization) techniques to improve website visibility.
+Figma or Adobe XD for designing and prototyping UI/UX before development.
+JWT (JSON Web Tokens) for secure authentication and authorization.
+GraphQL for efficient data fetching and manipulation.
+Tailwind CSS for utility-first styling to quickly design custom UI.
+Redux for state management in complex React applications.
+WebSockets for real-time communication features, such as chat applications.
+Firebase for authentication, hosting, and real-time database services.
+PWA (Progressive Web App) technologies for creating offline-first apps.
+Lighthouse for performance audits and optimization.
+Accessibility (a11y) best practices to ensure an inclusive experience for all users.
 
