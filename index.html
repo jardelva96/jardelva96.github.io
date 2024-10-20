@@ -193,13 +193,12 @@
 
 
 .clock-frame {
-    background-color: #eeeeee;
-    border-radius: 50%;
+    background-color: #393e46;
     width: 500px;
     height: 400px;
     display: flex;
-    justify-content: left;
-    align-items: center;
+    justify-content: center;
+    align-items: left;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -226,39 +225,27 @@
     </header>
 
  <!-- Contêiner principal com o gráfico, mapa e relógio -->
-<div class="top-section">
-    <div class="clock-container">
-        <h2>Relógio e Data</h2>
-        <div class="clock" id="clock"></div>
-        <div class="date" id="date"></div>
-    </div>
-
-    <div class="chart-container" style="background-color: #393e46;">
-        <h2>Knowledge Level by Technology</h2>
-        <img class="chart" src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/knowledge_chart.png" alt="Knowledge Level by Technology" width="500" height="300">
-    </div>
-
     <div class="content-container">
-        <!-- Clock Box -->
-        <div class="box">
-            <div class="clock-frame">
-                <div>
-                    <div id="time" class="clock">00:00:00</div>
-                    <div id="date" class="clock" style="font-size: 1rem;">dd/mm/yyyy</div>
-                </div>
+    <div class="top-section">
+        <!-- Relógio e Data em formato de mostrador -->
+        <div class="clock-frame">
+            <div>
+                <div id="time" class="clock">00:00:00</div>
+                <div id="date" class="clock" style="font-size: 1rem;">dd/mm/yyyy</div>
             </div>
         </div>
 
-        <!-- Chart Box -->
-        <div class="box chart-container">
-            <img src="https://via.placeholder.com/300x300?text=Chart" alt="Knowledge Level by Technology">
+        <!-- Gráfico -->
+        <div class="chart-container" style="background-color: #393e46;">
+            <h2>Knowledge Level by Technology</h2>
+            <img class="chart" src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/knowledge_chart.png" alt="Knowledge Level by Technology" width="500" height="400">
         </div>
 
-        <!-- Map Box -->
-        <div class="box">
-            <div id="map"></div>
-        </div>
+        <!-- Mapa -->
+        <div id="map" style="width: 300px; height: 300px;"></div>
     </div>
+</div>
+
 
 
 
