@@ -192,26 +192,34 @@
         }
 
 
-.clock-frame {
-    background-color: #393e46;
-    width: 250px;
-    height: 200px;
+.content-container {
     display: flex;
-    justify-content: center;
-    align-items: left;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-}
-
-.clock {
-    font-size: 2rem;
-    color: #222831;
-}
-
-.chart-container img {
-    width: 500px;
-    height: 400px;
+    justify-content: space-between; /* Espaço uniforme entre os elementos */
+    gap: 20px; /* Espaço entre os itens */
+    background-color: #393e46;
+    padding: 20px;
     border-radius: 10px;
 }
+
+.top-section {
+    display: flex;
+    justify-content: space-between; /* Distribui os elementos igualmente */
+    gap: 20px; /* Adiciona um espaço entre os elementos */
+    flex-wrap: nowrap; /* Garante que todos fiquem na mesma linha */
+    width: 100%;
+}
+
+.clock-frame, .chart-container, #map {
+    flex: 1;
+    max-width: 300px; /* Limita a largura dos elementos para que fiquem do mesmo tamanho */
+    height: 300px; /* Define a altura uniforme */
+    background-color: #eeeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
 
 
        
