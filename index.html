@@ -280,45 +280,32 @@
         <p>WhatsApp: <a href="https://wa.me/5548988168349?text=Olá%20Jardel!" target="_blank">+55 48 98816-8349</a></p>
     </footer>
 
-<script>
-        // Função para inicializar o mapa do Google Maps
-        function initMap() {
-            const florianopolis = { lat: -27.5954, lng: -48.5480 };
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 12, // Ajuste o nível de zoom conforme desejado
-                center: florianopolis,
-            });
-            new google.maps.Marker({
-                position: florianopolis,
-                map: map,
-            });
-        }
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize the map
+            const map = L.map('map').setView([-27.5954, -48.5480], 12);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 18
+            }).addTo(map);
+            L.marker([-27.5954, -48.5480]).addTo(map)
+                .bindPopup('Florianópolis, SC - You are here!')
+                .openPopup();
 
-        // Script para atualizar o relógio e a data
-        function updateTime() {
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            const day = String(now.getDate()).padStart(2, '0');
-            const month = String(now.getMonth() + 1).padStart(2, '0');
-            const year = now.getFullYear();
+            // Update the clock every second
+            const timeElement = document.getElementById('time');
+            const updateTime = () => {
+                const now = new Date();
+                timeElement.textContent = now.toLocaleTimeString();
+            };
+            setInterval(updateTime, 1000);
+            updateTime();
 
-            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
-            document.getElementById('date').textContent = `${day}/${month}/${year}`;
-        }
-
-        // Atualiza o relógio a cada segundo
-        setInterval(updateTime, 1000);
-        updateTime();
+            // Placeholder weather data (replace with API calls for dynamic data)
+            const weatherElement = document.getElementById('weather');
+            weatherElement.innerHTML = '<p>22°C, Clear Skies</p>';
+        });
     </script>
-
-    <!-- Script do Google Maps -->
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
-    </script>
-
-
 
 </body>
 </html>
