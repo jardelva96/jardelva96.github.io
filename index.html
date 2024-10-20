@@ -185,6 +185,38 @@
     text-align: center;
 }
 
+.chart-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    background-color: #222831;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.chart-section h2 {
+    color: #00adb5;
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.knowledge-chart {
+    max-width: 100%;
+    width: 800px;  /* Define a largura desejada */
+    height: 300px; /* Define a altura desejada para tornar a imagem mais larga */
+    object-fit: cover; /* Garante que a imagem preencha a área sem distorção */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.knowledge-chart:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
 
 
     </style>
