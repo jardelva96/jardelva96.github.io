@@ -319,53 +319,7 @@
         <p>WhatsApp: <a href="https://wa.me/5548988168349?text=Olá%20Jardel!" target="_blank">+55 48 98816-8349</a></p>
     </footer>
 
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Verifica se o elemento do mapa está presente na página
-        const mapElement = document.getElementById('map');
-        if (mapElement) {
-            // Inicializa o mapa na localização específica de Florianópolis, SC
-            const map = L.map('map').setView([-27.5954, -48.5480], 12);
 
-            // Adiciona o tile layer do OpenStreetMap
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 18,
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-
-            // Adiciona um marcador na localização especificada com um popup
-            L.marker([-27.5954, -48.5480]).addTo(map)
-                .bindPopup('Florianópolis, SC - Você está aqui!')
-                .openPopup();
-        } else {
-            console.error('Elemento do mapa não encontrado. Certifique-se de que há um elemento com o id "map".');
-        }
-
-        // Atualiza o relógio a cada segundo
-        const timeElement = document.getElementById('time');
-        if (timeElement) {
-            const updateTime = () => {
-                const now = new Date();
-                timeElement.textContent = now.toLocaleTimeString();
-            };
-            setInterval(updateTime, 1000);
-            updateTime();
-        } else {
-            console.error('Elemento do relógio não encontrado. Certifique-se de que há um elemento com o id "time".');
-        }
-
-        // Atualiza as informações do clima (substituir com chamadas de API para dados dinâmicos)
-        const weatherElement = document.getElementById('weather');
-        if (weatherElement) {
-            // Placeholder para dados de clima
-            weatherElement.innerHTML = '<p>22°C, Céu limpo</p>';
-            // Para usar uma API, substitua o conteúdo do innerHTML por uma chamada de API.
-        } else {
-            console.error('Elemento do clima não encontrado. Certifique-se de que há um elemento com o id "weather".');
-        }
-    });
-</script>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
