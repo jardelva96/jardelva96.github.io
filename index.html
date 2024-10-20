@@ -140,7 +140,22 @@
     text-decoration: none;
     padding: 1rem;
     transition: color 0.3s ease;
-}
+        }
+        .project-item {
+    background-color: #393e46;
+    border-radius: 10px;
+    overflow: hidden; /* Isso garante que a imagem não ultrapasse o contêiner */
+    transition: transform 0.3s ease;
+    text-align: center;
+    width: 300px; /* Assegura que o contêiner tenha 300px de largura */
+    height: 300px; /* Assegura que o contêiner tenha 300px de altura */
+        }
+
+    .project-item img {
+    width: 100%; /* Preenche toda a largura do contêiner */
+    height: 100%; /* Preenche toda a altura do contêiner */
+    object-fit: cover; /* Garante que a imagem se ajuste ao contêiner e preencha toda a área */
+        }
 
 
     </style>
