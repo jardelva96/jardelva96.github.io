@@ -217,6 +217,79 @@
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
+.top-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.chart-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    background-color: #222831;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.technologies {
+    flex: 1;
+    background-color: #00adb5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.technologies h2 {
+    color: #222831;
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.technologies-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.technologies-list a {
+    background-color: #eeeeee;
+    color: #222831;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.technologies-list a:hover {
+    background-color: #222831;
+    color: #00adb5;
+}
+
+.knowledge-chart {
+    max-width: 100%;
+    width: 500px;  /* Adjust width to fit the design */
+    height: 300px; /* Adjust height to fit the design */
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.knowledge-chart:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
 
 
     </style>
