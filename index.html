@@ -188,6 +188,13 @@
     footer a:hover {
         text-decoration: underline;
     }
+        #map {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    
 </style>
 
 </head>
@@ -200,16 +207,11 @@
     <img src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/knowledge_chart.png" alt="Knowledge Chart" width="500" height="300">
 </div>
 
-<div class="top-section">
-    <div class="chart-container">
-        <img src="images/enhanced_knowledge_chart.png" alt="Knowledge Level by Technology" class="knowledge-chart">
-    </div>
-    <div class="map-container">
-        <h2>My Location</h2>
-        <div id="map"></div>
-    </div>
-</div>
 
+       <div class="map-container">
+    <h2>Localização - Florianópolis, SC</h2>
+    <div id="map"></div>
+        </div>
 
 
     <div class="container">
@@ -269,25 +271,25 @@
         <p>WhatsApp: <a href="https://wa.me/5548988168349?text=Olá%20Jardel!" target="_blank">+55 48 98816-8349</a></p>
     </footer>
 
-  <script>
-    function initMap() {
-        const florianopolisLocation = { lat: -27.5954, lng: -48.5480 }; // Coordenadas de Florianópolis
-
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 12, // Ajuste de zoom para mostrar a cidade
-            center: florianopolisLocation,
-        });
-
-        new google.maps.Marker({
-            position: florianopolisLocation,
-            map: map,
-            title: "Florianópolis",
-        });
-    }
-</script>
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
-</script>
+<script>
+        function initMap() {
+            // Coordenadas de Florianópolis, SC
+            const florianopolis = { lat: -27.5954, lng: -48.5480 };
+            // Criação do mapa centrado em Florianópolis
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12,
+                center: florianopolis,
+            });
+            // Adiciona um marcador para Florianópolis
+            new google.maps.Marker({
+                position: florianopolis,
+                map: map,
+            });
+        }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+    </script>
 
 
 
