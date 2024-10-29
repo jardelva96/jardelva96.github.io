@@ -17,6 +17,8 @@ This portfolio is built using HTML, CSS, and JavaScript, and integrates with the
 ## 📸 Preview
 
 ![Portfolio Screenshot](./path-to-screenshot.png)
+![Profile views](https://komarev.com/ghpvc/?username=seu-username&color=blue)
+
 
 ## 💡 Technologies Used
 
