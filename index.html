@@ -214,8 +214,10 @@
         <p>&copy; 2024 Jardel Alves. All rights reserved. | Contact me at: <a href="mailto:jardel.va96@gmail.com">jardel.va96@gmail.com</a></p>
         <p>WhatsApp: <a href="https://wa.me/5548988168349?text=Olá%20Jardel!">+55 48 98816-8349</a></p>
     </footer>
-<script>
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Inicializa o mapa
             const map = L.map('map').setView([-27.5954, -48.5480], 12);
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 18,
@@ -223,12 +225,20 @@
             }).addTo(map);
             L.marker([-27.5954, -48.5480]).addTo(map).bindPopup('Florianópolis, SC').openPopup();
 
+            // Atualiza hora e data
             const timeElement = document.getElementById('time');
             const dateElement = document.getElementById('date');
             const updateTime = () => {
                 const now = new Date();
-                timeElement.textContent = now.toLocaleTimeString();
-                dateElement.textContent = now.toLocaleDateString();
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                timeElement.textContent = `${hours}:${minutes}:${seconds}`;
+
+                const day = String(now.getDate()).padStart(2, '0');
+                const month = String(now.getMonth() + 1).padStart(2, '0');
+                const year = now.getFullYear();
+                dateElement.textContent = `${day}/${month}/${year}`;
             };
             setInterval(updateTime, 1000);
             updateTime();
