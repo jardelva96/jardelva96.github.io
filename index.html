@@ -143,6 +143,33 @@
             text-align: center;
             margin-top: 2rem;
         }
+.flying-object {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: float 5s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(20px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+ .flying-object {
+    position: absolute;
+    transition: all 2s ease-in-out;
+    z-index: 10; /* Para garantir que os objetos apareçam acima */
+}
+       
     </style>
 </head>
 <body>
@@ -151,6 +178,11 @@
         <h1>JARDEL ALVES - PORTFOLIO</h1>
     </header>
 
+
+<div class="flying-object" style="top: 100px; left: 200px;"></div>
+<div class="flying-object" style="top: 300px; left: 500px;"></div>
+
+    
     <div class="content-container">
         <div class="clock-frame">
             <div>
@@ -212,27 +244,53 @@
         <p>&copy; 2024 Jardel Alves. All rights reserved. | Contact me at: <a href="mailto:jardel.va96@gmail.com">jardel.va96@gmail.com</a></p>
         <p>WhatsApp: <a href="https://wa.me/5548988168349?text=Olá%20Jardel!">+55 48 98816-8349</a></p>
     </footer>
+<script> 
+    document.addEventListener('DOMContentLoaded', () => {
+    // Inicializa o mapa
+    const map = L.map('map').setView([-27.5954, -48.5480], 12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+    L.marker([-27.5954, -48.5480]).addTo(map).bindPopup('Florianópolis, SC').openPopup();
 
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const map = L.map('map').setView([-27.5954, -48.5480], 12);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 18,
-                attribution: '&copy; OpenStreetMap contributors'
-            }).addTo(map);
-            L.marker([-27.5954, -48.5480]).addTo(map).bindPopup('Florianópolis, SC').openPopup();
+    // Atualiza data e hora
+    const timeElement = document.getElementById('time');
+    const dateElement = document.getElementById('date');
+    const updateTime = () => {
+        const now = new Date();
+        timeElement.textContent = now.toLocaleTimeString();
+        dateElement.textContent = now.toLocaleDateString();
+    };
+    setInterval(updateTime, 1000);
+    updateTime();
 
-            const timeElement = document.getElementById('time');
-            const dateElement = document.getElementById('date');
-            const updateTime = () => {
-                const now = new Date();
-                timeElement.textContent = now.toLocaleTimeString();
-                dateElement.textContent = now.toLocaleDateString();
-            };
-            setInterval(updateTime, 1000);
-            updateTime();
-        });
-    </script>
+    // Função para criar objetos voadores
+    const createFlyingObject = () => {
+        const object = document.createElement('div');
+        object.className = 'flying-object';
+        object.style.position = 'absolute';
+        object.style.width = `${Math.random() * 30 + 20}px`; // Tamanhos variáveis
+        object.style.height = `${Math.random() * 30 + 20}px`;
+        object.style.borderRadius = '50%';
+        object.style.backgroundColor = `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.7)`;
+        object.style.top = `${Math.random() * window.innerHeight}px`;
+        object.style.left = `${Math.random() * window.innerWidth}px`;
+
+        document.body.appendChild(object);
+
+        // Atualiza posição a cada 2 segundos
+        setInterval(() => {
+            object.style.top = `${Math.random() * window.innerHeight}px`;
+            object.style.left = `${Math.random() * window.innerWidth}px`;
+        }, 2000);
+    };
+
+    // Criar vários objetos
+    for (let i = 0; i < 5; i++) {
+        createFlyingObject();
+    }
+});
+</script> 
 </body>
 </html>
