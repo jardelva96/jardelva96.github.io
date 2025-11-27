@@ -1,1182 +1,1569 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jardel Alves — Portfolio</title>
+  <meta charset="UTF-8" />
+  <title>Jardel Vieira Alves — Senior Full-Stack Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- SEO -->
+  <meta name="description"
+        content="Senior Full-Stack Software Engineer with 8+ years of experience in React, Angular, Vue, ASP.NET, Java, microservices, APIs, and cloud." />
 
-    <!-- Leaflet CSS -->
-    <link
-        rel="stylesheet"
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet"
         href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
         integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-        crossorigin=""
-    />
-
-    <style>
-        :root {
-            --bg: #020617;
-            --bg-elevated: #020617;
-            --bg-card: #0b1220;
-            --bg-soft: #020617;
-            --border-subtle: rgba(148, 163, 184, 0.25);
-            --accent: #00adb5;
-            --accent-soft: rgba(0, 173, 181, 0.15);
-            --accent-strong: #00f6ff;
-            --text-main: #e5e7eb;
-            --text-muted: #9ca3af;
-            --chip-bg: rgba(15, 23, 42, 0.9);
-            --chip-border: rgba(148, 163, 184, 0.4);
-            --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.9);
-            --radius-lg: 24px;
-            --radius-md: 14px;
-            --radius-pill: 999px;
-            --transition-fast: 0.18s ease-out;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-            background: radial-gradient(circle at top, #020617 0, #020617 40%, #020617 100%);
-            color: var(--text-main);
-            min-height: 100vh;
-            padding: 0;
-            margin: 0;
-            -webkit-font-smoothing: antialiased;
-            /* cursor personalizado */
-            cursor: url("https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/other/clique.png"), auto;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        .page {
-            max-width: 1120px;
-            margin: 0 auto;
-            padding: 20px 16px 40px;
-        }
-
-        /* TOP BAR */
-
-        .topbar {
-            position: sticky;
-            top: 0;
-            z-index: 40;
-            backdrop-filter: blur(18px);
-            background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.04), transparent 55%)
-                rgba(2, 6, 23, 0.93);
-            border-bottom: 1px solid rgba(148, 163, 184, 0.22);
-        }
-
-        .topbar-inner {
-            max-width: 1120px;
-            margin: 0 auto;
-            padding: 10px 16px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .brand-avatar {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            border: 1px solid rgba(148, 163, 184, 0.6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.9rem;
-            background: radial-gradient(circle at top, #1f2937 0, #020617 70%);
-            box-shadow: 0 12px 25px rgba(15, 23, 42, 0.8);
-        }
-
-        .brand-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .brand-name {
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .brand-role {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .top-nav {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.8rem;
-        }
-
-        .top-nav a {
-            padding: 6px 10px;
-            border-radius: 999px;
-            border: 1px solid transparent;
-            color: var(--text-muted);
-            transition: border-color var(--transition-fast), color var(--transition-fast),
-                background var(--transition-fast), transform var(--transition-fast);
-        }
-
-        .top-nav a:hover {
-            color: var(--text-main);
-            border-color: rgba(148, 163, 184, 0.5);
-            background: rgba(15, 23, 42, 0.9);
-            transform: translateY(-1px);
-        }
-
-        .btn-primary {
-            padding: 7px 16px;
-            border-radius: 999px;
-            border: none;
-            background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-            color: #020617;
-            font-weight: 600;
-            font-size: 0.8rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            box-shadow: 0 14px 35px rgba(34, 211, 238, 0.45);
-            transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, filter 0.18s ease-out;
-        }
-
-        .btn-primary span {
-            font-size: 0.9rem;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-1px) translateZ(0);
-            filter: brightness(1.05);
-            box-shadow: 0 16px 40px rgba(34, 211, 238, 0.55);
-        }
-
-        .btn-ghost {
-            padding: 7px 14px;
-            border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.5);
-            background: rgba(15, 23, 42, 0.85);
-            color: var(--text-main);
-            font-size: 0.8rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            transition: background var(--transition-fast), border-color var(--transition-fast),
-                transform var(--transition-fast);
-        }
-
-        .btn-ghost:hover {
-            background: rgba(15, 23, 42, 1);
-            border-color: rgba(148, 163, 184, 0.9);
-            transform: translateY(-1px);
-        }
-
-        /* HERO */
-
-        .hero {
-            display: grid;
-            grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.3fr);
-            gap: 28px;
-            margin-top: 24px;
-            margin-bottom: 32px;
-        }
-
-        .hero-left {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-
-        .hero-badge-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            align-items: center;
-        }
-
-        .hero-badge {
-            font-size: 0.72rem;
-            padding: 5px 10px;
-            border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.6);
-            background: radial-gradient(circle at top, rgba(56, 189, 248, 0.1), rgba(15, 23, 42, 0.9));
-            color: var(--text-muted);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .hero-badge-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #22c55e;
-            box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.35);
-        }
-
-        .hero-title {
-            font-size: clamp(1.9rem, 3.1vw, 2.5rem);
-            line-height: 1.15;
-            letter-spacing: -0.03em;
-        }
-
-        .hero-title span {
-            background: linear-gradient(120deg, #e5e7eb, #e5e7eb, var(--accent-strong));
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        .hero-subtitle {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            max-width: 34rem;
-        }
-
-        .hero-subtitle strong {
-            color: #e5e7eb;
-        }
-
-        .hero-cta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 4px;
-        }
-
-        .hero-meta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-top: 10px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .hero-meta-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .hero-meta-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: rgba(148, 163, 184, 0.9);
-        }
-
-        .hero-right {
-            display: grid;
-            grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
-            gap: 14px;
-        }
-
-        .card {
-            background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), transparent 55%)
-                radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.95), #020617);
-            background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), transparent 55%),
-                linear-gradient(135deg, rgba(15, 23, 42, 0.98), #020617);
-            border-radius: var(--radius-lg);
-            padding: 14px 16px;
-            border: 1px solid var(--border-subtle);
-            box-shadow: var(--shadow-soft);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at top, rgba(248, 250, 252, 0.03), transparent 60%);
-            mix-blend-mode: screen;
-            pointer-events: none;
-        }
-
-        .card-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .clock-shell {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .clock-label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .clock-time {
-            font-size: 1.8rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-        }
-
-        .clock-date {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .clock-location {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.75rem;
-            margin-top: 4px;
-            padding: 4px 9px;
-            border-radius: 999px;
-            background: rgba(15, 23, 42, 0.85);
-            border: 1px solid rgba(148, 163, 184, 0.45);
-            width: fit-content;
-        }
-
-        .clock-location-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #22c55e;
-        }
-
-        .chart-card-title {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-bottom: 6px;
-        }
-
-        .chart-thumb {
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid rgba(148, 163, 184, 0.4);
-            max-height: 180px;
-        }
-
-        .chart-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease-out, filter 0.3s ease-out;
-        }
-
-        .chart-thumb:hover img {
-            transform: scale(1.03);
-            filter: saturate(1.1);
-        }
-
-        /* SECTIONS */
-
-        .section {
-            margin-bottom: 32px;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            margin-bottom: 14px;
-        }
-
-        .section-title {
-            font-size: 1rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .section-title span {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 18px;
-            height: 18px;
-            border-radius: 999px;
-            background: rgba(15, 23, 42, 0.9);
-            border: 1px solid rgba(148, 163, 184, 0.5);
-            font-size: 0.7rem;
-            color: var(--text-muted);
-        }
-
-        .section-subtitle {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        /* SKILLS */
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-            gap: 18px;
-        }
-
-        .skills-chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .chip {
-            font-size: 0.75rem;
-            padding: 6px 11px;
-            border-radius: var(--radius-pill);
-            border: 1px solid var(--chip-border);
-            background: var(--chip-bg);
-            color: var(--text-main);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            backdrop-filter: blur(10px);
-        }
-
-        .chip-dot {
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: rgba(148, 163, 184, 0.8);
-        }
-
-        .skills-columns {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 10px;
-            font-size: 0.78rem;
-        }
-
-        .skill-col-title {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-bottom: 6px;
-        }
-
-        .skill-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 4px;
-        }
-
-        .skill-name {
-            color: #e5e7eb;
-        }
-
-        .skill-level {
-            color: var(--accent-strong);
-            font-size: 0.75rem;
-        }
-
-        /* PROJECTS */
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 14px;
-        }
-
-        .project-card {
-            border-radius: var(--radius-md);
-            background: radial-gradient(circle at top, rgba(56, 189, 248, 0.08), transparent 55%),
-                linear-gradient(135deg, #020617, #020617);
-            border: 1px solid var(--border-subtle);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out,
-                background 0.2s ease-out;
-            cursor: pointer;
-        }
-
-        .project-card:hover {
-            transform: translateY(-4px) translateZ(0);
-            box-shadow: 0 22px 40px rgba(15, 23, 42, 0.95);
-            border-color: rgba(56, 189, 248, 0.6);
-            background: radial-gradient(circle at top, rgba(56, 189, 248, 0.12), transparent 60%),
-                linear-gradient(135deg, #020617, #020617);
-        }
-
-        .project-image {
-            height: 150px;
-            overflow: hidden;
-        }
-
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.35s ease-out;
-        }
-
-        .project-card:hover .project-image img {
-            transform: scale(1.05);
-        }
-
-        .project-body {
-            padding: 10px 11px 11px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .project-title {
-            font-size: 0.95rem;
-            font-weight: 600;
-        }
-
-        .project-desc {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 2px;
-        }
-
-        .project-tag {
-            font-size: 0.7rem;
-            padding: 3px 7px;
-            border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.5);
-            color: var(--text-muted);
-        }
-
-        .project-link {
-            margin-top: 6px;
-            font-size: 0.8rem;
-            color: var(--accent-strong);
-        }
-
-        /* LOCATION & CONTACT */
-
-        .location-contact {
-            display: grid;
-            grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-            gap: 18px;
-        }
-
-        #map {
-            width: 100%;
-            height: 240px;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-subtle);
-            overflow: hidden;
-        }
-
-        .contact-card {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .contact-row {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .contact-row strong {
-            color: #e5e7eb;
-            font-weight: 500;
-        }
-
-        .contact-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 4px;
-        }
-
-        .contact-chip {
-            font-size: 0.78rem;
-            padding: 6px 10px;
-            border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.5);
-            background: rgba(15, 23, 42, 0.85);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        /* FOOTER */
-
-        footer {
-            margin-top: 12px;
-            padding-top: 16px;
-            border-top: 1px solid rgba(148, 163, 184, 0.35);
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-        }
-
-        footer a {
-            color: var(--accent-strong);
-        }
-
-        /* RESPONSIVE */
-
-        @media (max-width: 960px) {
-            .hero {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
-            .hero-right {
-                order: -1;
-            }
-
-            .projects-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .location-contact {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
-
-        @media (max-width: 720px) {
-            .top-nav {
-                display: none;
-            }
-
-            .projects-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
-            footer {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-    </style>
+        crossorigin=""/>
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-elevated: rgba(15, 23, 42, 0.98);
+      --bg-soft: rgba(15, 23, 42, 0.85);
+      --accent: #00f6ff;
+      --accent-soft: rgba(0, 246, 255, 0.18);
+      --accent-strong: #22d3ee;
+      --danger: #f97373;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.35);
+      --shadow-soft: 0 26px 60px rgba(15, 23, 42, 0.9);
+      --radius-lg: 26px;
+      --radius-md: 16px;
+      --radius-pill: 999px;
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.25s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at 10% -10%, #0f172a 0, #020617 40%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      cursor: url("https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/other/clique.png"), auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* BACKGROUND FLOATING SHAPES (things flying) */
+
+    .floating-shapes {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .shape {
+      position: absolute;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, rgba(56, 189, 248, 0.6), transparent 60%);
+      filter: blur(2px);
+      opacity: 0.16;
+      animation: floatShape 22s linear infinite;
+    }
+
+    .shape.small {
+      width: 80px;
+      height: 80px;
+    }
+
+    .shape.medium {
+      width: 140px;
+      height: 140px;
+    }
+
+    .shape.large {
+      width: 220px;
+      height: 220px;
+    }
+
+    .shape:nth-child(1) { top: 10%; left: -6%; animation-duration: 26s; }
+    .shape:nth-child(2) { top: 70%; left: 90%; animation-duration: 32s; }
+    .shape:nth-child(3) { top: 55%; left: -10%; animation-duration: 28s; }
+    .shape:nth-child(4) { top: -12%; left: 40%; animation-duration: 30s; }
+    .shape:nth-child(5) { top: 80%; left: 40%; animation-duration: 24s; }
+
+    @keyframes floatShape {
+      0%   { transform: translate3d(0, 0, 0) rotate(0deg);   opacity: 0.08; }
+      25%  { transform: translate3d(30px, -40px, 0) rotate(30deg); opacity: 0.2; }
+      50%  { transform: translate3d(-20px, -10px, 0) rotate(60deg); opacity: 0.12; }
+      75%  { transform: translate3d(25px, 30px, 0) rotate(90deg);  opacity: 0.18; }
+      100% { transform: translate3d(0, 0, 0) rotate(120deg); opacity: 0.08; }
+    }
+
+    /* PAGE LAYOUT */
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 16px 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* TOP NAV */
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.09), transparent 55%)
+                  rgba(2, 6, 23, 0.96);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .topbar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 20% 0%, #22d3ee, #0f172a 55%);
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .brand-role {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .top-nav {
+      display: flex;
+      gap: 10px;
+      font-size: 0.8rem;
+      align-items: center;
+    }
+
+    .top-nav a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      transition: color var(--transition-fast), border-color var(--transition-fast),
+                  background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .top-nav a:hover {
+      color: var(--text-main);
+      border-color: rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.95);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      padding: 7px 16px;
+      border-radius: var(--radius-pill);
+      border: none;
+      background: radial-gradient(circle at 0% 0%, #a5f3fc 0, #22d3ee 36%, #0ea5e9 100%);
+      color: #020617;
+      font-weight: 600;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 16px 40px rgba(34, 211, 238, 0.6);
+      transform-origin: center;
+      transition: transform var(--transition-med), box-shadow var(--transition-med), filter var(--transition-med);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.02);
+      filter: brightness(1.05);
+      box-shadow: 0 22px 50px rgba(34, 211, 238, 0.75);
+    }
+
+    .btn-ghost {
+      padding: 7px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: background var(--transition-fast), border-color var(--transition-fast),
+                  transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 1);
+      border-color: rgba(148, 163, 184, 0.9);
+      transform: translateY(-1px);
+      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.8);
+    }
+
+    /* HERO */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
+      gap: 26px;
+      margin-top: 26px;
+      margin-bottom: 30px;
+      align-items: stretch;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      font-size: 0.74rem;
+      padding: 5px 11px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent 60%);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      animation: subtleBounce 3.2s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.35);
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 3.3vw, 2.6rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      max-width: 26rem;
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(120deg, #e5e7eb, #e5e7eb, var(--accent));
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 24px rgba(34, 211, 238, 0.35);
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 32rem;
+    }
+
+    .hero-subtitle strong {
+      color: #e5e7eb;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 8px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-meta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(148, 163, 184, 0.9);
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-self: stretch;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 60%),
+                  linear-gradient(135deg, rgba(15, 23, 42, 0.98), #020617);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 16px 18px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      transform: translateY(0) translateZ(0);
+      animation: floatCard 13s ease-in-out infinite;
+    }
+
+    .card:nth-of-type(2) {
+      animation-duration: 16s;
+      animation-delay: -3s;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(248, 250, 252, 0.04), transparent 65%);
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* CLOCK */
+
+    .clock-shell {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .clock-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .clock-time {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .clock-date {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .clock-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      margin-top: 4px;
+      padding: 4px 9px;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      width: fit-content;
+    }
+
+    .clock-location-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .chart-thumb {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      max-height: 200px;
+      transform: translateY(0);
+      transition: transform 0.35s ease-out, filter 0.35s ease-out;
+    }
+
+    .chart-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: inherit;
+    }
+
+    .chart-thumb:hover {
+      transform: translateY(-3px);
+      filter: saturate(1.15) brightness(1.05);
+    }
+
+    .chart-thumb:hover img {
+      transform: scale(1.06);
+    }
+
+    /* SECTION GENERIC */
+
+    .section {
+      margin-bottom: 32px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title span.badge {
+      width: 20px;
+      height: 20px;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--text-muted);
+    }
+
+    .section-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* SKILLS */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    .skills-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      font-size: 0.76rem;
+      padding: 6px 11px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: rgba(15, 23, 42, 0.92);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(10px);
+    }
+
+    .chip-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.95);
+    }
+
+    .skills-columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      font-size: 0.78rem;
+    }
+
+    .skill-col-title {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .skill-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 3px;
+    }
+
+    .skill-name {
+      color: #e5e7eb;
+    }
+
+    .skill-level {
+      color: var(--accent-strong);
+      font-size: 0.76rem;
+    }
+
+    /* EXPERIENCE */
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .xp-card {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 60%),
+                  linear-gradient(135deg, rgba(15, 23, 42, 0.98), #020617);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      padding: 12px 14px;
+      position: relative;
+      overflow: hidden;
+      transform: translateY(0);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+                  border-color var(--transition-fast), background var(--transition-fast);
+      animation: subtleBounce 6s ease-in-out infinite;
+    }
+
+    .xp-card:nth-child(2) { animation-delay: -1s; }
+    .xp-card:nth-child(3) { animation-delay: -2s; }
+    .xp-card:nth-child(4) { animation-delay: -3s; }
+
+    .xp-card:hover {
+      transform: translateY(-4px) translateZ(0);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.9);
+      border-color: rgba(56, 189, 248, 0.7);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 60%),
+                  linear-gradient(135deg, rgba(15, 23, 42, 1), #020617);
+    }
+
+    .xp-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 4px;
+      font-size: 0.78rem;
+    }
+
+    .xp-role {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .xp-company {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .xp-time {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .xp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .xp-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .xp-highlight {
+      font-size: 0.78rem;
+      color: #cbd5f5;
+      margin-top: 4px;
+    }
+
+    .xp-side-card p {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .bubble-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+      font-size: 0.78rem;
+    }
+
+    .bubble-list li {
+      padding: 4px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* PROJECTS */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .project-card {
+      border-radius: var(--radius-md);
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.14), transparent 55%),
+                  linear-gradient(145deg, #020617, #020617);
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transform: translateY(0) scale(1);
+      transition: transform var(--transition-med), box-shadow var(--transition-med),
+                  border-color var(--transition-med), background var(--transition-med);
+      animation: floatCard 14s ease-in-out infinite;
+    }
+
+    .project-card:nth-child(2) { animation-duration: 18s; }
+    .project-card:nth-child(3) { animation-duration: 16s; }
+    .project-card:nth-child(4) { animation-duration: 20s; }
+    .project-card:nth-child(5) { animation-duration: 17s; }
+    .project-card:nth-child(6) { animation-duration: 19s; }
+
+    .project-card:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 24px 52px rgba(15, 23, 42, 0.98);
+      border-color: rgba(56, 189, 248, 0.9);
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 60%),
+                  linear-gradient(145deg, #020617, #020617);
+    }
+
+    .project-image {
+      height: 160px;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.04);
+      transition: transform 0.4s ease-out, filter 0.4s ease-out;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.08);
+      filter: saturate(1.15) brightness(1.04);
+    }
+
+    .project-body {
+      padding: 10px 11px 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.8rem;
+    }
+
+    .project-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .project-desc {
+      color: var(--text-muted);
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .project-tag {
+      font-size: 0.72rem;
+      padding: 3px 7px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.96);
+    }
+
+    .project-link {
+      margin-top: 4px;
+      font-size: 0.78rem;
+      color: var(--accent-strong);
+    }
+
+    /* LOCATION & CONTACT */
+
+    .location-contact {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    #map {
+      width: 100%;
+      height: 260px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+    }
+
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .contact-card strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .contact-chip {
+      font-size: 0.78rem;
+      padding: 6px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: rgba(15, 23, 42, 0.92);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+                  border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .contact-chip:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.95);
+      border-color: rgba(56, 189, 248, 0.8);
+      background: rgba(15, 23, 42, 1);
+    }
+
+    /* EDUCATION & LANGUAGES */
+
+    .edu-lang-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    .edu-list {
+      list-style: none;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .edu-list li + li {
+      margin-top: 5px;
+    }
+
+    .edu-title {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    /* FOOTER */
+
+    footer {
+      margin-top: 14px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    footer a {
+      color: var(--accent-strong);
+    }
+
+    /* ANIMATIONS */
+
+    @keyframes subtleBounce {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-3px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes floatCard {
+      0%   { transform: translateY(0) translateZ(0); }
+      50%  { transform: translateY(-6px) translateZ(0); }
+      100% { transform: translateY(0) translateZ(0); }
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 960px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-right {
+        order: -1;
+      }
+      .skills-grid,
+      .experience-grid,
+      .location-contact,
+      .edu-lang-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .top-nav {
+        display: none;
+      }
+      .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- TOP BAR -->
-    <header class="topbar">
-        <div class="topbar-inner">
-            <div class="brand">
-                <div class="brand-avatar">JA</div>
-                <div class="brand-text">
-                    <span class="brand-name">Jardel Alves</span>
-                    <span class="brand-role">Full Stack Developer</span>
-                </div>
-            </div>
+  <!-- Floating shapes background -->
+  <div class="floating-shapes">
+    <div class="shape large"></div>
+    <div class="shape medium"></div>
+    <div class="shape small"></div>
+    <div class="shape medium"></div>
+    <div class="shape large"></div>
+  </div>
 
-            <nav class="top-nav">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </nav>
-
-            <a href="mailto:jardel.va96@gmail.com" class="btn-primary">
-                <span>Let’s talk</span>
-                <span>↗</span>
-            </a>
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-avatar">JA</div>
+        <div class="brand-text">
+          <span class="brand-name">Jardel Vieira Alves</span>
+          <span class="brand-role">Senior Full-Stack Software Engineer</span>
         </div>
-    </header>
+      </div>
 
-    <main class="page">
-        <!-- HERO -->
-        <section class="hero" id="about">
-            <div class="hero-left">
-                <div class="hero-badge-row">
-                    <div class="hero-badge">
-                        <span class="hero-badge-dot"></span>
-                        <span>Open to opportunities · Remote & On-site</span>
-                    </div>
-                </div>
+      <nav class="top-nav">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-                <h1 class="hero-title">
-                    I build <span>solid, scalable web applications</span> with Java, Python & modern JavaScript.
-                </h1>
+      <a href="mailto:jardel.va96@gmail.com?subject=Senior%20Full-Stack%20Opportunity%20for%20Jardel"
+         class="btn-primary">
+        <span>Let’s talk</span>
+        <span>↗</span>
+      </a>
+    </div>
+  </header>
 
-                <p class="hero-subtitle">
-                    Full Stack Developer based in <strong>Florianópolis, Brazil</strong>, focused on creating
-                    maintainable backends and polished interfaces.
-                    I enjoy working with <strong>Java/Spring</strong>, <strong>Python</strong>,
-                    <strong>React</strong>, and cloud-native architectures.
-                </p>
+  <main class="page">
+    <!-- HERO -->
+    <section class="hero" id="about">
+      <div class="hero-left">
+        <div class="hero-badge-row">
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            <span>Open to opportunities · Remote & On-site</span>
+          </div>
+        </div>
 
-                <div class="hero-cta-row">
-                    <a href="https://github.com/jardelva96" target="_blank" class="btn-ghost">
-                        <span>GitHub Profile</span> <span>⤤</span>
-                    </a>
-                    <!-- Troque o href abaixo pelo seu LinkedIn real -->
-                    <a href="https://www.linkedin.com" target="_blank" class="btn-ghost">
-                        <span>LinkedIn</span> <span>↗</span>
-                    </a>
-                </div>
+        <h1 class="hero-title">
+          I design & build <span class="highlight">end-to-end web platforms</span> — from modern
+          frontends to cloud-native backends.
+        </h1>
 
-                <div class="hero-meta-row">
-                    <div class="hero-meta-item">
-                        <span class="hero-meta-dot"></span>
-                        <span>Backend · APIs · Integrations</span>
-                    </div>
-                    <div class="hero-meta-item">
-                        <span class="hero-meta-dot"></span>
-                        <span>Clean code · Testing · CI/CD</span>
-                    </div>
-                </div>
+        <p class="hero-subtitle">
+          Senior full-stack engineer with <strong>8+ years of experience</strong> delivering
+          solutions for the public sector, finance, healthcare, retail, logistics and education.
+          Strong on both <strong>frontend</strong> (React, Angular, Vue, ASP.NET, JSF/Thymeleaf)
+          and <strong>backend</strong> (REST/gRPC APIs, microservices, event-driven systems),
+          with deployments using Docker, Kubernetes and CI/CD pipelines.
+        </p>
+
+        <div class="hero-cta-row">
+          <a href="https://github.com/jardelva96" target="_blank" class="btn-ghost">
+            <span>GitHub Profile</span>
+            <span>⤤</span>
+          </a>
+          <a href="https://www.linkedin.com/in/jardelva" target="_blank" class="btn-ghost">
+            <span>LinkedIn</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+        <div class="hero-meta-row">
+          <div class="hero-meta-item">
+            <span class="hero-meta-dot"></span>
+            <span>Florianópolis, Brazil · Open to relocation</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-dot"></span>
+            <span>React · Angular · Vue · ASP.NET · Java · Python · Microservices</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <!-- Clock card -->
+        <div class="card">
+          <div class="card-content clock-shell">
+            <div class="card-header-row">
+              <span>Local time · Florianópolis</span>
+              <span style="font-size:0.75rem;color:var(--text-muted);">Brazil (UTC-3)</span>
             </div>
-
-            <div class="hero-right">
-                <!-- Clock card -->
-                <div class="card">
-                    <div class="card-content clock-shell">
-                        <div class="clock-label">Local time · Florianópolis</div>
-                        <div id="time" class="clock-time">00:00:00</div>
-                        <div id="date" class="clock-date">dd/mm/yyyy</div>
-                        <div class="clock-location">
-                            <span class="clock-location-dot"></span>
-                            <span>America/São_Paulo (UTC-3)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Knowledge chart card -->
-                <div class="card">
-                    <div class="card-content">
-                        <div class="chart-card-title">Knowledge level by technology</div>
-                        <a
-                            href="https://github.com/jardelva96/Knowledge-Level-with-python.git"
-                            target="_blank"
-                            title="View the code on GitHub"
-                            class="chart-thumb"
-                        >
-                            <img
-                                src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/knowledge_chart.png"
-                                alt="Knowledge Level by Technology"
-                            />
-                        </a>
-                    </div>
-                </div>
+            <div id="time" class="clock-time">00:00:00</div>
+            <div id="date" class="clock-date">dd/mm/yyyy</div>
+            <div class="clock-location">
+              <span class="clock-location-dot"></span>
+              <span>America/São_Paulo</span>
             </div>
-        </section>
+          </div>
+        </div>
 
-        <!-- SKILLS -->
-        <section class="section" id="skills">
-            <div class="section-header">
-                <h2 class="section-title"><span>01</span> Skills & Technologies</h2>
-                <p class="section-subtitle">Tech stack I use to deliver production-ready applications.</p>
+        <!-- Knowledge chart card -->
+        <div class="card">
+          <div class="card-content">
+            <div class="card-header-row">
+              <span>Knowledge level by technology</span>
+              <span style="font-size:0.75rem;color:var(--text-muted);">Based on personal benchmarks</span>
             </div>
+            <a class="chart-thumb"
+               href="https://github.com/jardelva96/Knowledge-Level-with-python"
+               target="_blank"
+               title="View the code of this chart on GitHub">
+              <img src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/knowledge_chart.png"
+                   alt="Knowledge level by technology chart"/>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <div class="card">
-                <div class="card-content">
-                    <div class="skills-grid">
-                        <div>
-                            <div class="skills-chips">
-                                <div class="chip">
-                                    <span class="chip-dot"></span>
-                                    Java · Spring Boot
-                                </div>
-                                <div class="chip">
-                                    <span class="chip-dot"></span>
-                                    Python · Django
-                                </div>
-                                <div class="chip">
-                                    <span class="chip-dot"></span>
-                                    React · Node.js
-                                </div>
-                                <div class="chip">
-                                    <span class="chip-dot"></span>
-                                    REST APIs · JSON
-                                </div>
-                                <div class="chip">
-                                    <span class="chip-dot"></span>
-                                    Docker · AWS
-                                </div>
-                                <div class="chip">
-                                    <span class="chip-dot"></span>
-                                    SQL · Relational DBs
-                                </div>
-                            </div>
-                        </div>
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="badge">01</span> Core Skills & Tech Stack
+        </h2>
+        <p class="section-subtitle">
+          The tools I use to ship production-ready software across frontend, backend and cloud.
+        </p>
+      </div>
 
-                        <div class="skills-columns">
-                            <div>
-                                <div class="skill-col-title">Backend & Cloud</div>
-                                <div class="skill-row">
-                                    <span class="skill-name">Java / Spring Boot</span>
-                                    <span class="skill-level">Advanced</span>
-                                </div>
-                                <div class="skill-row">
-                                    <span class="skill-name">Python / Django</span>
-                                    <span class="skill-level">Advanced</span>
-                                </div>
-                                <div class="skill-row">
-                                    <span class="skill-name">REST APIs & Security</span>
-                                    <span class="skill-level">Advanced</span>
-                                </div>
-                                <div class="skill-row">
-                                    <span class="skill-name">Docker</span>
-                                    <span class="skill-level">Intermediate</span>
-                                </div>
-                                <div class="skill-row">
-                                    <span class="skill-name">AWS</span>
-                                    <span class="skill-level">Intermediate</span>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="skill-col-title">Frontend & Tools</div>
-                                <div class="skill-row">
-                                    <span class="skill-name">React</span>
-                                    <span class="skill-level">Intermediate</span>
-                                </div>
-                                <div class="skill-row">
-                                    <span class="skill-name">Node.js</span>
-                                    <span class="skill-level">Intermediate</span>
-                                </div>
-                                <div class="skill-row">
-                                    <span class="skill-name">HTML · CSS · JS</span>
-                                    <span class="skill-level">Advanced</span>
-                                </div>
-                                <div class="skill-row">
-                                    <span class="skill-name">SQL / Data Modeling</span>
-                                    <span class="skill-level">Advanced</span>
-                                </div>
-                                <div class="skill-row">
-                                    <span class="skill-name">Git · GitHub</span>
-                                    <span class="skill-level">Advanced</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROJECTS -->
-        <section class="section" id="projects">
-            <div class="section-header">
-                <h2 class="section-title"><span>02</span> Selected Projects</h2>
-                <p class="section-subtitle">A few real projects that show how I think and build software.</p>
-            </div>
-
-            <div class="projects-grid">
-                <!-- Task Management System -->
-                <a
-                    class="project-card"
-                    href="https://github.com/jardelva96/task-manager"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    <div class="project-image">
-                        <img
-                            src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/task.jpg"
-                            alt="Task Management System"
-                        />
-                    </div>
-                    <div class="project-body">
-                        <div class="project-title">Task Management System</div>
-                        <p class="project-desc">
-                            Full-featured task manager with user auth, status tracking and deadlines.
-                            Built to organize work in teams.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">Java</span>
-                            <span class="project-tag">Spring Boot</span>
-                            <span class="project-tag">REST API</span>
-                        </div>
-                        <span class="project-link">View on GitHub ↗</span>
-                    </div>
-                </a>
-
-                <!-- E-Commerce Platform -->
-                <a
-                    class="project-card"
-                    href="https://github.com/jardelva96/e-commerce-website"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    <div class="project-image">
-                        <img
-                            src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/ecommerce.jpg"
-                            alt="E-Commerce Platform"
-                        />
-                    </div>
-                    <div class="project-body">
-                        <div class="project-title">E-Commerce Platform</div>
-                        <p class="project-desc">
-                            Online store with product catalog, cart flow and checkout.
-                            Focused on clean architecture and scalability.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">React</span>
-                            <span class="project-tag">Node.js</span>
-                            <span class="project-tag">Stripe (placeholder)</span>
-                        </div>
-                        <span class="project-link">View on GitHub ↗</span>
-                    </div>
-                </a>
-
-                <!-- Weather App -->
-                <a
-                    class="project-card"
-                    href="https://github.com/jardelva96/weather-app"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    <div class="project-image">
-                        <img
-                            src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/weather.jpg"
-                            alt="Weather App"
-                        />
-                    </div>
-                    <div class="project-body">
-                        <div class="project-title">Weather App</div>
-                        <p class="project-desc">
-                            Weather dashboard consuming external APIs to show forecasts, temperatures
-                            and conditions per city.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">API Integration</span>
-                        </div>
-                        <span class="project-link">View on GitHub ↗</span>
-                    </div>
-                </a>
-
-                <!-- Data Dashboard -->
-                <a
-                    class="project-card"
-                    href="https://github.com/jardelva96/dashboard_fullstack"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    <div class="project-image">
-                        <img
-                            src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/data.jpg"
-                            alt="Data Analysis Dashboard"
-                        />
-                    </div>
-                    <div class="project-body">
-                        <div class="project-title">Data Analysis Dashboard</div>
-                        <p class="project-desc">
-                            Interactive dashboard to visualize metrics and KPIs, with filters and
-                            charts for decision-making.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Django</span>
-                            <span class="project-tag">Charts</span>
-                        </div>
-                        <span class="project-link">View on GitHub ↗</span>
-                    </div>
-                </a>
-
-                <!-- Inventory Management -->
-                <a
-                    class="project-card"
-                    href="https://github.com/jardelva96/inventory-management"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    <div class="project-image">
-                        <img
-                            src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/inventory.jpg"
-                            alt="Inventory Management"
-                        />
-                    </div>
-                    <div class="project-body">
-                        <div class="project-title">Inventory Management</div>
-                        <p class="project-desc">
-                            System to track stock levels, movements and alerts to avoid shortages and
-                            overstock.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">Java</span>
-                            <span class="project-tag">REST API</span>
-                            <span class="project-tag">SQL</span>
-                        </div>
-                        <span class="project-link">View on GitHub ↗</span>
-                    </div>
-                </a>
-
-                <!-- Chat Application -->
-                <a
-                    class="project-card"
-                    href="https://github.com/jardelva96/chat-app"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    <div class="project-image">
-                        <img
-                            src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/chat.jpg"
-                            alt="Chat Application"
-                        />
-                    </div>
-                    <div class="project-body">
-                        <div class="project-title">Real-time Chat Application</div>
-                        <p class="project-desc">
-                            Real-time messaging app with rooms and live updates, built as a playground
-                            for websockets.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">Node.js</span>
-                            <span class="project-tag">WebSockets</span>
-                        </div>
-                        <span class="project-link">View on GitHub ↗</span>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <!-- LOCATION & CONTACT -->
-        <section class="section" id="contact">
-            <div class="section-header">
-                <h2 class="section-title"><span>03</span> Location & Contact</h2>
-                <p class="section-subtitle">Based in Florianópolis, open to remote and relocation.</p>
-            </div>
-
-            <div class="location-contact">
-                <div class="card">
-                    <div class="card-content">
-                        <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 6px;">
-                            Where I'm currently based
-                        </div>
-                        <div id="map"></div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-content contact-card">
-                        <div class="contact-row">
-                            <strong>Email</strong><br />
-                            <a href="mailto:jardel.va96@gmail.com">jardel.va96@gmail.com</a>
-                        </div>
-                        <div class="contact-row">
-                            <strong>WhatsApp</strong><br />
-                            <a href="https://wa.me/5548988168349?text=Ol%C3%A1%20Jardel!" target="_blank"
-                                >+55 48 98816-8349</a
-                            >
-                        </div>
-                        <div class="contact-row">
-                            <strong>GitHub</strong><br />
-                            <a href="https://github.com/jardelva96" target="_blank">github.com/jardelva96</a>
-                        </div>
-
-                        <div class="contact-actions">
-                            <a
-                                href="mailto:jardel.va96@gmail.com?subject=Opportunities for Full Stack Developer"
-                                class="contact-chip"
-                            >
-                                <span>✉</span>
-                                <span>Send an email</span>
-                            </a>
-                            <a
-                                href="https://wa.me/5548988168349?text=Ol%C3%A1%20Jardel!"
-                                class="contact-chip"
-                                target="_blank"
-                            >
-                                <span>💬</span>
-                                <span>Message on WhatsApp</span>
-                            </a>
-                        </div>
-
-                        <div class="contact-row">
-                            <strong>What I’m looking for</strong><br />
-                            Backend / Full Stack roles using Java, Spring Boot, Python, Node.js or
-                            React. I enjoy working close to the business and shipping features that
-                            matter.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOOTER -->
-        <footer>
+      <div class="card">
+        <div class="card-content">
+          <div class="skills-grid">
             <div>
-                © 2024 · Jardel Alves. Built with HTML, CSS & JavaScript.
+              <div class="skills-chips">
+                <div class="chip">
+                  <span class="chip-dot"></span>
+                  React · Angular · Vue
+                </div>
+                <div class="chip">
+                  <span class="chip-dot"></span>
+                  ASP.NET MVC/WebForms
+                </div>
+                <div class="chip">
+                  <span class="chip-dot"></span>
+                  Java · Spring · JSF · Thymeleaf
+                </div>
+                <div class="chip">
+                  <span class="chip-dot"></span>
+                  REST & gRPC APIs
+                </div>
+                <div class="chip">
+                  <span class="chip-dot"></span>
+                  Microservices · Event-Driven
+                </div>
+                <div class="chip">
+                  <span class="chip-dot"></span>
+                  Docker · Kubernetes · AWS
+                </div>
+                <div class="chip">
+                  <span class="chip-dot"></span>
+                  SQL/PLSQL · Oracle · PostgreSQL · SQL Server
+                </div>
+              </div>
+            </div>
+
+            <div class="skills-columns">
+              <div>
+                <div class="skill-col-title">Frontend Engineering</div>
+                <div class="skill-row">
+                  <span class="skill-name">React · Angular · Vue</span>
+                  <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-row">
+                  <span class="skill-name">SPAs, routing, state management</span>
+                  <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-row">
+                  <span class="skill-name">Accessibility & performance</span>
+                  <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-row">
+                  <span class="skill-name">ASP.NET MVC/WebForms, JSF/Thymeleaf</span>
+                  <span class="skill-level">Advanced</span>
+                </div>
+              </div>
+
+              <div>
+                <div class="skill-col-title">Backend, Data & DevOps</div>
+                <div class="skill-row">
+                  <span class="skill-name">REST/gRPC, authN/authZ</span>
+                  <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-row">
+                  <span class="skill-name">Kafka · RabbitMQ · Integrations</span>
+                  <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-row">
+                  <span class="skill-name">SQL/PLSQL · tuning · ETL</span>
+                  <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-row">
+                  <span class="skill-name">Docker · K8s · CI/CD · AWS</span>
+                  <span class="skill-level">Advanced</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="badge">02</span> Professional Experience
+        </h2>
+        <p class="section-subtitle">
+          End-to-end delivery across public sector, finance, healthcare, retail, logistics and education.
+        </p>
+      </div>
+
+      <div class="experience-grid">
+        <div class="timeline">
+          <!-- K3B -->
+          <article class="xp-card">
+            <div class="xp-header">
+              <div>
+                <div class="xp-role">Full-Stack Developer · K3B Systems</div>
+                <div class="xp-company">Client: Santa Catarina Ministry of Finance · Florianópolis (Hybrid)</div>
+              </div>
+              <div class="xp-time">Nov 2024 – Present</div>
+            </div>
+            <div class="xp-tags">
+              <span class="tag">React · Angular · Vue</span>
+              <span class="tag">ASP.NET · WebForms/MVC</span>
+              <span class="tag">Java · Spring/JSF/Thymeleaf</span>
+              <span class="tag">Oracle · PL/SQL</span>
+              <span class="tag">Kafka · RabbitMQ</span>
+            </div>
+            <p class="xp-desc">
+              Leading full-stack delivery for SAT modules, building React/Angular frontends
+              that consume .NET and Java REST/gRPC services. Modernizing legacy
+              WebForms/JSF/Thymeleaf into SPA components and standardizing data access
+              through PL/SQL and external SQL scripts.
+            </p>
+            <p class="xp-highlight">
+              Introduced async processing with Kafka/RabbitMQ, improved logging and dashboards,
+              and enforced CI policies in Azure DevOps for higher reliability.
+            </p>
+          </article>
+
+          <!-- WFS -->
+          <article class="xp-card">
+            <div class="xp-header">
+              <div>
+                <div class="xp-role">Full-Stack Developer · WFS Soluções</div>
+                <div class="xp-company">Remote</div>
+              </div>
+              <div class="xp-time">Mar 2024 – Dec 2024</div>
+            </div>
+            <div class="xp-tags">
+              <span class="tag">ASP.NET Core</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">React/Angular</span>
+              <span class="tag">PostgreSQL · SQL Server</span>
+              <span class="tag">Docker · Kubernetes · GitLab CI</span>
+            </div>
+            <p class="xp-desc">
+              Built React and Angular UIs integrated with REST/gRPC services in C# and Python.
+              Added health checks, tracing and structured logging, optimized SQL and caching,
+              and containerized services with GitLab CI pipelines targeting Kubernetes clusters.
+            </p>
+          </article>
+
+          <!-- Innovatech -->
+          <article class="xp-card">
+            <div class="xp-header">
+              <div>
+                <div class="xp-role">Full-Stack Developer · Innovatech Uruguay</div>
+                <div class="xp-company">Remote</div>
+              </div>
+              <div class="xp-time">Apr 2020 – Dec 2022</div>
+            </div>
+            <div class="xp-tags">
+              <span class="tag">Java · Spring Boot</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">Angular</span>
+              <span class="tag">Kafka</span>
+              <span class="tag">AWS (Lambda, ECS, S3, RDS)</span>
+            </div>
+            <p class="xp-desc">
+              Modernized JSF/Thymeleaf systems into Angular modules and refactored services
+              following Clean Architecture and OWASP best practices. Implemented Kafka for
+              scalable async processing and automated CI/CD pipelines to AWS.
+            </p>
+          </article>
+
+          <!-- CSC -->
+          <article class="xp-card">
+            <div class="xp-header">
+              <div>
+                <div class="xp-role">Full-Stack Developer · CSC Brasil (HPE/DXC)</div>
+                <div class="xp-company">On-site & Remote</div>
+              </div>
+              <div class="xp-time">Jan 2016 – Dec 2020</div>
+            </div>
+            <div class="xp-tags">
+              <span class="tag">Java · Spring · JSF</span>
+              <span class="tag">ASP.NET MVC/WebForms</span>
+              <span class="tag">Laravel · Django</span>
+              <span class="tag">React · Angular · Vue</span>
+              <span class="tag">SQL Server · PostgreSQL · MySQL · MongoDB</span>
+            </div>
+            <p class="xp-desc">
+              Built and maintained React/Angular/Vue frontends integrated with REST/SOAP backends,
+              introduced microservices and event-driven patterns, and improved deployment
+              repeatability with Docker and CI across multiple sectors.
+            </p>
+          </article>
+        </div>
+
+        <aside class="xp-side-card card">
+          <div class="card-content">
+            <p><strong>What I usually bring to a team</strong></p>
+            <p>
+              I help teams gradually modernize legacy systems while keeping operations stable:
+              introducing new SPAs, APIs, tests and observability without breaking existing flows.
+            </p>
+            <ul class="bubble-list">
+              <li>Legacy → modern SPA migration</li>
+              <li>REST/gRPC API design</li>
+              <li>Microservices & messaging</li>
+              <li>Performance tuning & SQL</li>
+              <li>CI/CD, Docker, Kubernetes</li>
+              <li>Teaching & mentoring developers</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="badge">03</span> Selected Personal Projects
+        </h2>
+        <p class="section-subtitle">
+          A few repos that show how I structure code, APIs and frontends in practice.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Task Manager -->
+        <a class="project-card" href="https://github.com/jardelva96/task-manager" target="_blank" rel="noreferrer">
+          <div class="project-image">
+            <img src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/task.jpg"
+                 alt="Task Management System" />
+          </div>
+          <div class="project-body">
+            <div class="project-title">Task Management System</div>
+            <p class="project-desc">
+              Full-featured task manager with user authentication, status tracking and deadlines,
+              designed for team workflows.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Java</span>
+              <span class="project-tag">Spring Boot</span>
+              <span class="project-tag">REST API</span>
+            </div>
+            <span class="project-link">View on GitHub ↗</span>
+          </div>
+        </a>
+
+        <!-- E-Commerce -->
+        <a class="project-card" href="https://github.com/jardelva96/e-commerce-website" target="_blank" rel="noreferrer">
+          <div class="project-image">
+            <img src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/ecommerce.jpg"
+                 alt="E-Commerce Platform" />
+          </div>
+          <div class="project-body">
+            <div class="project-title">E-Commerce Platform</div>
+            <p class="project-desc">
+              Online store with product catalog, cart flow and checkout. Built to explore clean
+              architecture and scalable modules.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Node.js</span>
+            </div>
+            <span class="project-link">View on GitHub ↗</span>
+          </div>
+        </a>
+
+        <!-- Weather App -->
+        <a class="project-card" href="https://github.com/jardelva96/weather-app" target="_blank" rel="noreferrer">
+          <div class="project-image">
+            <img src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/weather.jpg"
+                 alt="Weather App" />
+          </div>
+          <div class="project-body">
+            <div class="project-title">Weather App</div>
+            <p class="project-desc">
+              Weather dashboard consuming external APIs to show forecasts, temperature and conditions per city.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">API Integration</span>
+            </div>
+            <span class="project-link">View on GitHub ↗</span>
+          </div>
+        </a>
+
+        <!-- Dashboard -->
+        <a class="project-card" href="https://github.com/jardelva96/dashboard_fullstack" target="_blank" rel="noreferrer">
+          <div class="project-image">
+            <img src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/data.jpg"
+                 alt="Data Analysis Dashboard" />
+          </div>
+          <div class="project-body">
+            <div class="project-title">Data Analysis Dashboard</div>
+            <p class="project-desc">
+              Interactive dashboard for metrics and KPIs, with charts and filters to support decision-making.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Django</span>
+              <span class="project-tag">Charts</span>
+            </div>
+            <span class="project-link">View on GitHub ↗</span>
+          </div>
+        </a>
+
+        <!-- Inventory Management -->
+        <a class="project-card" href="https://github.com/jardelva96/inventory-management" target="_blank" rel="noreferrer">
+          <div class="project-image">
+            <img src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/inventory.jpg"
+                 alt="Inventory Management" />
+          </div>
+          <div class="project-body">
+            <div class="project-title">Inventory Management</div>
+            <p class="project-desc">
+              System to track stock levels, movements and alerts, avoiding shortages and overstock.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Java</span>
+              <span class="project-tag">REST API</span>
+              <span class="project-tag">SQL</span>
+            </div>
+            <span class="project-link">View on GitHub ↗</span>
+          </div>
+        </a>
+
+        <!-- Chat App -->
+        <a class="project-card" href="https://github.com/jardelva96/chat-app" target="_blank" rel="noreferrer">
+          <div class="project-image">
+            <img src="https://raw.githubusercontent.com/jardelva96/jardelva96.github.io/main/images/chat.jpg"
+                 alt="Real-time Chat Application" />
+          </div>
+          <div class="project-body">
+            <div class="project-title">Real-time Chat Application</div>
+            <p class="project-desc">
+              Real-time messaging app with rooms and live updates, built as a playground for WebSockets.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">WebSockets</span>
+            </div>
+            <span class="project-link">View on GitHub ↗</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- EDUCATION & LANGUAGES -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="badge">04</span> Education & Languages
+        </h2>
+        <p class="section-subtitle">
+          Strong academic background in software engineering, data analysis and mathematics.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-content edu-lang-grid">
+          <div>
+            <h3 style="font-size:0.88rem;margin-bottom:6px;">Education</h3>
+            <ul class="edu-list">
+              <li>
+                <span class="edu-title">M.Sc. in Software Engineering (In progress)</span> — UNISUL University
+              </li>
+              <li>
+                <span class="edu-title">Postgraduate, Software Engineering</span> — Faculdade Serra Geral (2023)
+              </li>
+              <li>
+                <span class="edu-title">Postgraduate, Data Analysis Applied to Mathematics</span> — Faculdade Descomplica (2021)
+              </li>
+              <li>
+                <span class="edu-title">Postgraduate, Artificial Intelligence & Machine Learning</span> — Faculdade Unyleya (2020)
+              </li>
+              <li>
+                <span class="edu-title">B.Sc., Systems Analysis & Development</span> — Faculdade Única (2022)
+              </li>
+              <li>
+                <span class="edu-title">B.Ed., Mathematics</span> — Universidade do Estado do Amazonas (2018)
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 style="font-size:0.88rem;margin-bottom:6px;">Languages</h3>
+            <ul class="edu-list">
+              <li><span class="edu-title">Portuguese</span> — Native</li>
+              <li><span class="edu-title">English</span> — Advanced</li>
+              <li><span class="edu-title">Spanish</span> — Advanced</li>
+            </ul>
+            <h3 style="font-size:0.88rem;margin:10px 0 4px;">Teaching Experience</h3>
+            <p style="font-size:0.8rem;color:var(--text-muted);">
+              Technical & Mathematics Teacher at Instituto Estadual de Educação (SC/AM),
+              teaching programming (Java, C#, Python, PHP), frontend/backend, databases
+              and systems integration — from 2018 to 2025.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION & CONTACT -->
+    <section class="section" id="contact">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="badge">05</span> Location & Contact
+        </h2>
+        <p class="section-subtitle">
+          Based in Florianópolis · open to remote work and relocation.
+        </p>
+      </div>
+
+      <div class="location-contact">
+        <div class="card">
+          <div class="card-content">
+            <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:6px;">
+              Where I’m currently based
+            </div>
+            <div id="map"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-content contact-card">
+            <div>
+              <strong>Email</strong><br />
+              <a href="mailto:jardel.va96@gmail.com">jardel.va96@gmail.com</a>
             </div>
             <div>
-                Last updated portfolio ·
-                <span style="color: var(--accent-strong);">2024</span>
+              <strong>WhatsApp</strong><br />
+              <a href="https://wa.me/5548988168349?text=Hi%20Jardel%2C%20I%27d%20like%20to%20talk%20about%20an%20opportunity."
+                 target="_blank">+55 48 98816-8349</a>
             </div>
-        </footer>
-    </main>
+            <div>
+              <strong>GitHub</strong><br />
+              <a href="https://github.com/jardelva96" target="_blank">github.com/jardelva96</a>
+            </div>
+            <div>
+              <strong>LinkedIn</strong><br />
+              <a href="https://www.linkedin.com/in/jardelva" target="_blank">linkedin.com/in/jardelva</a>
+            </div>
 
-    <!-- Leaflet JS -->
-    <script
-        src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-        crossorigin=""
-    ></script>
+            <div class="contact-actions">
+              <a href="mailto:jardel.va96@gmail.com?subject=Senior%20Full-Stack%20Opportunity%20for%20Jardel"
+                 class="contact-chip">
+                <span>✉</span>
+                <span>Send an email</span>
+              </a>
+              <a href="https://wa.me/5548988168349?text=Hi%20Jardel%2C%20let%27s%20talk%20about%20a%20role."
+                 class="contact-chip" target="_blank">
+                <span>💬</span>
+                <span>Message on WhatsApp</span>
+              </a>
+            </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Clock
-            const timeElement = document.getElementById("time");
-            const dateElement = document.getElementById("date");
+            <div>
+              <strong>What I’m looking for</strong><br />
+              Backend / Full-Stack roles using Java, C#, Python, ASP.NET, React, Angular or Vue.
+              I enjoy modernizing complex systems, designing APIs and working close to the business
+              to ship features that matter.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            const updateTime = () => {
-                const now = new Date();
-                const hours = String(now.getHours()).padStart(2, "0");
-                const minutes = String(now.getMinutes()).padStart(2, "0");
-                const seconds = String(now.getSeconds()).padStart(2, "0");
-                timeElement.textContent = `${hours}:${minutes}:${seconds}`;
+    <!-- FOOTER -->
+    <footer>
+      <div>© 2025 · Jardel Vieira Alves. Built with HTML, CSS & JavaScript.</div>
+      <div>Last updated portfolio · <span style="color:var(--accent-strong);">2025</span></div>
+    </footer>
+  </main>
 
-                const day = String(now.getDate()).padStart(2, "0");
-                const month = String(now.getMonth() + 1).padStart(2, "0");
-                const year = now.getFullYear();
-                dateElement.textContent = `${day}/${month}/${year}`;
-            };
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+          integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+          crossorigin=""></script>
 
-            updateTime();
-            setInterval(updateTime, 1000);
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Clock
+      const timeElement = document.getElementById("time");
+      const dateElement = document.getElementById("date");
 
-            // Map
-            const mapElement = document.getElementById("map");
-            if (mapElement) {
-                const map = L.map("map", {
-                    zoomControl: false,
-                }).setView([-27.5954, -48.5480], 12);
+      const updateTime = () => {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, "0");
+        const minutes = String(now.getMinutes()).padStart(2, "0");
+        const seconds = String(now.getSeconds()).padStart(2, "0");
+        timeElement.textContent = `${hours}:${minutes}:${seconds}`;
 
-                L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-                    maxZoom: 18,
-                    attribution: "&copy; OpenStreetMap contributors",
-                }).addTo(map);
+        const day = String(now.getDate()).padStart(2, "0");
+        const month = String(now.getMonth() + 1).padStart(2, "0");
+        const year = now.getFullYear();
+        dateElement.textContent = `${day}/${month}/${year}`;
+      };
 
-                L.marker([-27.5954, -48.5480])
-                    .addTo(map)
-                    .bindPopup("Florianópolis, SC")
-                    .openPopup();
-            }
-        });
-    </script>
+      updateTime();
+      setInterval(updateTime, 1000);
+
+      // Map
+      const mapElement = document.getElementById("map");
+      if (mapElement) {
+        const map = L.map("map", { zoomControl: false }).setView([-27.5954, -48.5480], 12);
+
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 18,
+          attribution: "&copy; OpenStreetMap contributors"
+        }).addTo(map);
+
+        L.marker([-27.5954, -48.5480])
+          .addTo(map)
+          .bindPopup("Florianópolis, SC")
+          .openPopup();
+      }
+    });
+  </script>
 </body>
 </html>
