@@ -4,76 +4,163 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FaceGeek - Social Network for Nerds</title>
+    <meta name="description" content="FaceGeek demo - A social network platform for developers and tech enthusiasts">
+    <link rel="canonical" href="https://jardelva96.github.io/facegeek/" />
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Smooth scrolling and focus management */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Focus indicators for accessibility */
+        a:focus-visible,
+        button:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid #007bff;
+            outline-offset: 2px;
+        }
+        
+        /* Active nav state */
+        .nav a.active {
+            font-weight: bold;
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+        }
+        
+        /* Back to portfolio link */
+        .back-link {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            z-index: 1000;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" style="position:absolute;top:-40px;left:0;background:#007bff;color:white;padding:8px 16px;">Skip to main content</a>
+    
+    <!-- Back to portfolio link -->
+    <a href="/" class="back-link" aria-label="Return to portfolio home">← Back to Portfolio</a>
+    
+    <header class="header" role="banner">
         <h1>FaceGeek</h1>
-        <nav class="nav">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#profile">Profile</a></li>
-                <li><a href="#messages">Messages</a></li>
-                <li><a href="#notifications">Notifications</a></li>
-                <li><a href="#settings">Settings</a></li>
+                <li><a href="#home" aria-label="Navigate to Home">Home</a></li>
+                <li><a href="#profile" aria-label="Navigate to Profile">Profile</a></li>
+                <li><a href="#messages" aria-label="Navigate to Messages">Messages</a></li>
+                <li><a href="#notifications" aria-label="Navigate to Notifications">Notifications</a></li>
+                <li><a href="#settings" aria-label="Navigate to Settings">Settings</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="main-container">
-        <aside class="sidebar">
+    <div class="main-container" id="main-content">
+        <aside class="sidebar" role="complementary" aria-label="Sidebar navigation">
             <h2>Explore</h2>
             <ul>
-                <li><a href="#groups">Groups</a></li>
-                <li><a href="#events">Events</a></li>
-                <li><a href="#friends">Friends</a></li>
-                <li><a href="#saved">Saved Posts</a></li>
+                <li><a href="#groups" aria-label="Navigate to Groups">Groups</a></li>
+                <li><a href="#events" aria-label="Navigate to Events">Events</a></li>
+                <li><a href="#friends" aria-label="Navigate to Friends">Friends</a></li>
+                <li><a href="#saved" aria-label="Navigate to Saved Posts">Saved Posts</a></li>
             </ul>
         </aside>
 
-        <section class="feed">
+        <section class="feed" role="main" aria-label="News Feed">
             <div class="create-post">
-                <textarea placeholder="What's on your mind, Jardel?"></textarea>
-                <button>Post</button>
+                <textarea placeholder="What's on your mind, Jardel?" aria-label="Create new post"></textarea>
+                <button aria-label="Publish post">Post</button>
             </div>
-            <div class="post">
+            <article class="post">
                 <h3>John Dev</h3>
                 <p>Just released my new Node.js course! Check it out on my profile.</p>
                 <span class="time">2 hours ago</span>
-            </div>
-            <div class="post">
+            </article>
+            <article class="post">
                 <h3>Jane Coder</h3>
                 <p>Started learning React, any tips for beginners?</p>
                 <span class="time">5 hours ago</span>
-            </div>
+            </article>
         </section>
 
-        <aside class="suggestions">
+        <aside class="suggestions" role="complementary" aria-label="Friend suggestions">
             <h2>Suggested Friends</h2>
             <div class="suggestion">
-                <img src="https://via.placeholder.com/50" alt="User 1">
+                <img src="https://via.placeholder.com/50" alt="Profile picture of Alex Nerd">
                 <div>
                     <p>Alex Nerd</p>
-                    <button>Add Friend</button>
+                    <button aria-label="Add Alex Nerd as friend">Add Friend</button>
                 </div>
             </div>
             <div class="suggestion">
-                <img src="https://via.placeholder.com/50" alt="User 2">
+                <img src="https://via.placeholder.com/50" alt="Profile picture of Chris Geek">
                 <div>
                     <p>Chris Geek</p>
-                    <button>Add Friend</button>
+                    <button aria-label="Add Chris Geek as friend">Add Friend</button>
                 </div>
             </div>
         </aside>
     </div>
 
-    <footer class="footer">
-        <p>&copy; 2024 FaceGeek - All rights reserved</p>
+    <footer class="footer" role="contentinfo">
+        <p>&copy; 2025 FaceGeek - Demo Project by Jardel Alves</p>
         <p>
-            <a href="https://github.com/jardelva96" target="_blank">GitHub</a> |
-            <a href="https://linkedin.com/in/jardel-alves96" target="_blank">LinkedIn</a> |
-            <a href="mailto:jardel.va96@gmail.com">Email Me</a>
+            <a href="https://github.com/jardelva96" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub profile (opens in new tab)">GitHub</a> |
+            <a href="https://www.linkedin.com/in/jardelva" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn profile (opens in new tab)">LinkedIn</a> |
+            <a href="mailto:jardel.va96@gmail.com" aria-label="Send email">Email Me</a>
         </p>
     </footer>
+    
+    <script>
+        // Navigation state management
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav a, .sidebar a');
+            
+            // Add click handlers to show/hide sections based on hash
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    
+                    // Update active state
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                    
+                    // Show corresponding section (simplified for demo)
+                    console.log(`Navigation to ${href} - Demo only`);
+                });
+            });
+            
+            // Set initial active state
+            const currentHash = window.location.hash || '#home';
+            const activeLink = document.querySelector(`.nav a[href="${currentHash}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+            
+            // Handle hash changes
+            window.addEventListener('hashchange', () => {
+                const hash = window.location.hash;
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === hash) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
